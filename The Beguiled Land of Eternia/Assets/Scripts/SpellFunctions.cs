@@ -75,7 +75,7 @@ public class SpellFunctions : MonoBehaviour
             
             //print("hello");
             Destroy(other.gameObject);
-            anim.SetBool("Hit", true);
+           
             Destroy(gameObject);
         }
 
