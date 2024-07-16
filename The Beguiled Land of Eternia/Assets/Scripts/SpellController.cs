@@ -49,7 +49,7 @@ public class SpellController : MonoBehaviour
     public void Cast() {
         
         if (GetSpellSlot() != -1) {
-           print(GetSpellSlot());
+           //print(GetSpellSlot());
             Instantiate((spellsList[GetSpellSlot()]), player.transform.position, transform.rotation);
             
         }
