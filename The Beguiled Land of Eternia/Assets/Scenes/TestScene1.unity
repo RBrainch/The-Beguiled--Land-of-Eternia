@@ -1807,6 +1807,7 @@ MonoBehaviour:
   currentHealth: 50
   healthBar: {fileID: 734105640}
   healthText: {fileID: 1174488117}
+  player: {fileID: 1964117855}
 --- !u!1 &917538923
 GameObject:
   m_ObjectHideFlags: 0
@@ -2991,7 +2992,7 @@ MonoBehaviour:
   spellsList:
   - {fileID: 5742805745412394632, guid: d8b181180fd38934cb67da281fbc2f5c, type: 3}
   - {fileID: 8812960726411524863, guid: 61fbe6f54e74fcc4a80bca19545aedc6, type: 3}
-  - {fileID: 7296655754223805937, guid: 9e2822f2870c2a347b0ead2f39a8a547, type: 3}
+  - {fileID: 782309851298768672, guid: 74acad8c31337b141a84d3f31548a526, type: 3}
   player: {fileID: 1964117855}
   mousePos: {x: 0, y: 0, z: 0}
   missileDirection: {x: 0, y: 0, z: 0}
