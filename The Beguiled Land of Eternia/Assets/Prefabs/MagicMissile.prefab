@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6705520771680787002}
   - component: {fileID: -3138151055009919960}
   - component: {fileID: 7412540322728537468}
+  - component: {fileID: -2207470917101927653}
   m_Layer: 0
   m_Name: MagicMissile
   m_TagString: Missile
@@ -101,6 +102,7 @@ MonoBehaviour:
   player: {fileID: 0}
   speed: 10
   mousePos: {x: 0, y: 0, z: 0}
+  missileDirection: {x: 0, y: 0, z: 0}
 --- !u!50 &7412540322728537468
 Rigidbody2D:
   serializedVersion: 4
@@ -122,3 +124,29 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!61 &-2207470917101927653
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5742805745412394632}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0

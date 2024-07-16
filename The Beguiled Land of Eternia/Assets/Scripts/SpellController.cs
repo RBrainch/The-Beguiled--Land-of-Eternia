@@ -14,9 +14,7 @@ public class SpellController : MonoBehaviour
     void Start()
     {
         player = GameObject.FindWithTag("Player");
-        mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        missileDirection = (mousePos - player.transform.position).normalized;
-       // player = FindObjectOfType<PlayerController>().gameObject;
+        // player = FindObjectOfType<PlayerController>().gameObject;
     }
 
     // Update is called once per frame
@@ -45,8 +43,9 @@ public class SpellController : MonoBehaviour
 
     public void Cast() {
         if (GetSpellSlot() != -1) {
-           print(missileDirection);
-            Instantiate((spellsList[GetSpellSlot()]), player.transform.position, Quaternion.Euler(missileDirection.x * 100, missileDirection.y * 100, 0));
+           
+            Instantiate((spellsList[GetSpellSlot()]), player.transform.position, transform.rotation);
+            
         }
     }
 }
