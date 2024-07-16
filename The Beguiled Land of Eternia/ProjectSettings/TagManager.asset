@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Missile
   - Heal
+  - SpellSlot
+  - SpellSlot2
+  - SpellSlot3
   layers:
   - Default
   - TransparentFX
