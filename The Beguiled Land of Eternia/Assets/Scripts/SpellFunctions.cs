@@ -12,14 +12,18 @@ public class SpellFunctions : MonoBehaviour
     //public Vector2 screenPosition;
     public Vector3 mousePos;
     public Vector3 missileDirection;  
+    public GameObject healthParent;
+    public HealthManager healthManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        spellController = player.GetComponent<SpellController>();
         player = GameObject.FindWithTag("Player");
+        spellController = player.GetComponent<SpellController>();
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         missileDirection = (mousePos - player.transform.position).normalized;
+        healthParent = FindObjectOfType<HealthManager>().gameObject;
+        healthManager = healthParent.GetComponent<HealthManager>();
 
     }
 
@@ -28,6 +32,10 @@ public class SpellFunctions : MonoBehaviour
     {
         if (gameObject.CompareTag("Missile")) {
             MagicMissile();
+        }
+        if (gameObject.CompareTag("Heal")) {
+            HealingSpell();
+            Destroy(gameObject);
         }
     }
     
@@ -43,12 +51,13 @@ public class SpellFunctions : MonoBehaviour
             
            // transform.rotation = Quaternion.Euler(missileDirection.x, missileDirection.y, 0);
             // (missileDirection.x, missileDirection.y, 0);
-        
-        
 
         
     }
 
+    void HealingSpell() {
+        healthManager.currentHealth += 50;
+    }
     void OnCollisionEnter2D(Collision2D other) {
         
         if (gameObject.CompareTag("Missile")) {

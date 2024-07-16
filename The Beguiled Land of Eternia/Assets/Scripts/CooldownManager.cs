@@ -12,9 +12,12 @@ public class CooldownManager : MonoBehaviour
     public KeyCode activateKey;
     public GameObject parent;
     public GameObject textObj;
+    public GameObject player;
+    public SpellController spellController;
     // Start is called before the first frame update
     void Start()
     {
+        spellController = player.GetComponent<SpellController>();
     }
 
     // Update is called once per frame
@@ -24,6 +27,9 @@ public class CooldownManager : MonoBehaviour
         {
             coolingDown = true;
         }
+        
+        
+
         if(coolingDown)
         {
             parent.SetActive(true);
@@ -38,6 +44,31 @@ public class CooldownManager : MonoBehaviour
         {
             parent.SetActive(false);
             timer = 0;
+        }
+    }
+    void LateUpdate(){
+        if (coolingDown && activateKey == KeyCode.E){
+            
+            spellController.Slot1Cast = false;
+            
+        }
+        if (coolingDown && activateKey == KeyCode.R){
+            spellController.Slot2Cast = false;
+        }
+        if(coolingDown && activateKey == KeyCode.F){
+            spellController.Slot3Cast = false;
+        }
+
+        if (!coolingDown && activateKey == KeyCode.E){
+            
+            spellController.Slot1Cast = true;
+        }
+        if (!coolingDown && activateKey == KeyCode.R){
+            spellController.Slot2Cast = true;
+        }
+        if(!coolingDown && activateKey == KeyCode.F){
+            //print ("hello");
+            spellController.Slot3Cast = true;
         }
     }
 }
