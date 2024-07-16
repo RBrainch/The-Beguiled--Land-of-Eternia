@@ -7,7 +7,7 @@ using TMPro;
 public class CooldownManager : MonoBehaviour
 {
     private float timer;
-    public float cooldown;
+    public SpellFunctions spell;
     private bool coolingDown;
     public KeyCode activateKey;
     public GameObject parent;
@@ -34,11 +34,11 @@ public class CooldownManager : MonoBehaviour
         {
             parent.SetActive(true);
             timer += Time.deltaTime;
-            if(timer >= cooldown)
+            if(timer >= spell.cooldown)
             {
                 coolingDown = false;
             }
-            textObj.GetComponent<TMP_Text>().text = ((int)(cooldown-timer)) + 1 + " sec";
+            textObj.GetComponent<TMP_Text>().text = ((int)(spell.cooldown-timer)) + 1 + " sec";
         }
         else
         {

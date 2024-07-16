@@ -1,12 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SpellFunctions : MonoBehaviour
 {
     public GameObject player;
     public SpellController spellController;
     public float damage;
+    public string name;
+    public string description;
+    public float cooldown;
+    public Sprite icon;
     Rigidbody2D rb;
     public float speed = 10f;
     //public Vector2 screenPosition;
