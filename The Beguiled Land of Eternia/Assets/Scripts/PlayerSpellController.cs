@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class PlayerController : MonoBehaviour
+public class PlayerSpellController : MonoBehaviour
 {
 
-    public Spell sampleSpell;
+    public Spell spellSlot1;
+    public Spell spellSlot2;
+    public Spell spellSlot3;
     public GameObject spellImage1;
     public GameObject spellImage2;
     public GameObject spellImage3;
@@ -21,7 +24,8 @@ public class PlayerController : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.E))
         {
-            sampleSpell.cast();
+            spellSlot1.cast();
         }
+        spellImage1.GetComponent<Image>().sprite = spellSlot1.icon;
     }
 }
