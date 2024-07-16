@@ -10,9 +10,10 @@ public class PlayerControllerChristian : MonoBehaviour
     public GameObject spellImage1;
     public GameObject spellImage2;
     public GameObject spellImage3;
+    public SpriteRenderer sr;
     void Start()
     {
-        
+        sr = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -20,6 +21,9 @@ public class PlayerControllerChristian : MonoBehaviour
     {
         float dx = Input.GetAxisRaw("Horizontal");
         float dy = Input.GetAxisRaw("Vertical");
+        
+
+        
         if (dx != 0 && dy != 0)
         {
             dx /= Mathf.Sqrt(2);
@@ -29,6 +33,12 @@ public class PlayerControllerChristian : MonoBehaviour
         dy *= Time.deltaTime * MoveSpeed;
 
         transform.Translate(dx, dy, 0);
+        if (dx > 0) {
+            sr.flipX = true;
+        }
+        else if (dx < 0) {
+            sr.flipX = false;
+        }
 
         if (Input.GetKeyDown(KeyCode.E))
         {

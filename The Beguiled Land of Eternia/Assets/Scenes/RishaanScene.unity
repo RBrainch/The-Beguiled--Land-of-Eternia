@@ -202,7 +202,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 128416746}
   m_LocalRotation: {x: -0.008727442, y: 0.008727442, z: -0.000076174045, w: 0.9999238}
-  m_LocalPosition: {x: -9.85, y: 0, z: 0.17}
+  m_LocalPosition: {x: 0, y: 0, z: 0.17}
   m_LocalScale: {x: 0.4875, y: 1.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -249,6 +249,9 @@ MonoBehaviour:
   player: {fileID: 128416746}
   mousePos: {x: 0, y: 0, z: 0}
   missileDirection: {x: 0, y: 0, z: 0}
+  Slot1Cast: 1
+  Slot2Cast: 1
+  Slot3Cast: 1
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -360,7 +363,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.85, y: 0, z: -9.83}
+  m_LocalPosition: {x: 0, y: 0, z: -9.83}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -556,7 +559,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1801723251}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -1.6, y: 0.33, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
