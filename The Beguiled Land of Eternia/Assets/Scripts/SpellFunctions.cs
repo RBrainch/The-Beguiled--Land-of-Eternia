@@ -5,8 +5,8 @@ using UnityEngine;
 public class SpellFunctions : MonoBehaviour
 {
     public GameObject player;
+    public SpellController spellController;
     public float damage;
-    public float cooldown;
     Rigidbody2D rb;
     public float speed = 10f;
     //public Vector2 screenPosition;
@@ -16,6 +16,7 @@ public class SpellFunctions : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        spellController = player.GetComponent<SpellController>();
         player = GameObject.FindWithTag("Player");
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         missileDirection = (mousePos - player.transform.position).normalized;
@@ -57,4 +58,6 @@ public class SpellFunctions : MonoBehaviour
         }
 
     }
+
+      
 }

@@ -8,6 +8,7 @@ public class SpellController : MonoBehaviour
     public GameObject player;
     public Vector3 mousePos;
     public Vector3 missileDirection;
+    
 
     
     // Start is called before the first frame update
