@@ -5,11 +5,14 @@ using UnityEngine;
 public class SpellFunctions : MonoBehaviour
 {
     public GameObject player;
+    public float damage;
+    public float cooldown;
     Rigidbody2D rb;
     public float speed = 10f;
     //public Vector2 screenPosition;
     public Vector3 mousePos;
     public Vector3 missileDirection;  
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,14 +25,20 @@ public class SpellFunctions : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        MagicMissile();
+        if (gameObject.CompareTag("Missile")) {
+            MagicMissile();
+        }
     }
     
     void MagicMissile() {
-        rb = GetComponent<Rigidbody2D>();
+            rb = GetComponent<Rigidbody2D>();
             //print(mousePos.normalized);
-            print(missileDirection + "Hello");
-            rb.AddForce(missileDirection * speed);
+            Vector3 rotation = mousePos - player.transform.position;
+            //print(missileDirection.normalized);
+            float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
+            rb.AddForce(missileDirection * speed, ForceMode2D.Force);
+
+            transform.rotation = Quaternion.Euler(0, 0, rotZ);
             
            // transform.rotation = Quaternion.Euler(missileDirection.x, missileDirection.y, 0);
             // (missileDirection.x, missileDirection.y, 0);
@@ -37,5 +46,15 @@ public class SpellFunctions : MonoBehaviour
         
 
         
+    }
+
+    void OnCollisionEnter2D(Collision2D other) {
+        
+        if (gameObject.CompareTag("Missile")) {
+            //print("hello");
+            Destroy(other.gameObject);
+            Destroy(gameObject);
+        }
+
     }
 }
