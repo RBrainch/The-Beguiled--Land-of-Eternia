@@ -25,7 +25,7 @@ public class HealthManager : MonoBehaviour
 
         healthText.text = currentHealth + "/" + maxHealth;
 
-        if (currentHealth == 0) {
+        if (currentHealth <= 0) {
             Destroy(player);
         }
     }

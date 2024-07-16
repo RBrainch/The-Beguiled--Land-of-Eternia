@@ -6,6 +6,7 @@ public class BasicEnemy : MonoBehaviour
 {
     public HealthManager Health;
     public GameObject Player;
+    public GameObject healthParent;
 
     public float MoveSpeed = 2f;
     public float DamageCooldown = 0;
@@ -13,8 +14,9 @@ public class BasicEnemy : MonoBehaviour
     public int MyDamage = 20;
     void Start()
     {
-        Health = FindObjectOfType<HealthManager>();
-        Player = FindObjectOfType<PlayerControllerChristian>().gameObject;
+        healthParent = FindObjectOfType<HealthManager>().gameObject;
+        Player = FindObjectOfType<SpellController>().gameObject;
+        Health = healthParent.GetComponent<HealthManager>();
     }
     void Update()
     {
@@ -38,12 +40,15 @@ public class BasicEnemy : MonoBehaviour
 
         transform.Translate(dx, dy, 0);
     }
-    private void OnTriggerStay2D(Collider2D Collision)
+    public void OnTriggerStay2D(Collider2D other) {
     {
-        if (Collision.gameObject == Player && DamageCooldown <= 0)
+        if (other.gameObject == Player && DamageCooldown <= 0)
         {
+            
             DamageCooldown = 1;
             Health.currentHealth -= MyDamage;
+            
         }
+    }
     }
 }
