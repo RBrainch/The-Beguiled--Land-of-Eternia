@@ -1,12 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class RoomGen : MonoBehaviour
 {
     public GameObject RoomVisualizer;
     public GameObject UpHallwayVisualizer;
     public GameObject RightHallwayVisualizer;
+
+    public Tilemap WallMap;
+    public Tilemap BackgroundMap;
+
+    public TileBase WallTile;
+    public TileBase DoorTile;
+    public TileBase BackgroundTile;
+    public TileBase StarterBackgroundTile;
+    public TileBase BossBackgroundTile;
+    public TileBase TreasureBackgroundTile;
     void Start()
     {
         RoomGenerator DearGod = new RoomGenerator(10, 12);
@@ -16,37 +27,114 @@ public class RoomGen : MonoBehaviour
             foreach (KeyValuePair<int, Room> Entry2 in Entry.Value)
             {
                 Room CurrentRoom = Entry2.Value;
-                GameObject RoomVisual = Instantiate(RoomVisualizer, new Vector3(CurrentRoom.x, CurrentRoom.y, 0), new Quaternion(0, 0, 0, 0));
+                TileBase TileToUse = BackgroundTile;
 
-                if (CurrentRoom.Type == "StartingRoom")
+                switch (CurrentRoom.Type)
                 {
-                    RoomVisual.GetComponent<SpriteRenderer>().color = new Color(1, 0, 1);
-                }
-                if (CurrentRoom.Type == "BossRoom")
-                {
-                    RoomVisual.GetComponent<SpriteRenderer>().color = new Color(1, 0, 0);
-                }
-                if (CurrentRoom.Type == "TreasureRoom")
-                {
-                    RoomVisual.GetComponent<SpriteRenderer>().color = new Color(1, 1, 0);
+                    case "StartingRoom":
+                        TileToUse = StarterBackgroundTile;
+                        break;
+                    case "BossRoom":
+                        TileToUse = BossBackgroundTile;
+                        break;
+                    case "TreasureRoom":
+                        TileToUse = TreasureBackgroundTile;
+                        break;
                 }
 
-                if (CurrentRoom.ConnectingDirections[Directions.North])
+                Vector3Int RoomWorldCoordinates = new Vector3Int(CurrentRoom.x * 10, CurrentRoom.y * 10, 0);
+                for (int x = 1; x < 9; x++)
                 {
-                    Instantiate(UpHallwayVisualizer, new Vector3(CurrentRoom.x, CurrentRoom.y + 0.5f, 0), new Quaternion(0, 0, 0, 0));
+                    for (int y = 1; y < 9; y++)
+                    {
+                        BackgroundMap.SetTile(new Vector3Int(RoomWorldCoordinates.x + x, RoomWorldCoordinates.y + y, 0), TileToUse);
+                    }
                 }
-                if (CurrentRoom.ConnectingDirections[Directions.South])
+
+                foreach (KeyValuePair<Directions, bool> Entry3 in CurrentRoom.ConnectingDirections)
                 {
-                    Instantiate(UpHallwayVisualizer, new Vector3(CurrentRoom.x, CurrentRoom.y - 0.5f, 0), new Quaternion(0, 0, 0, 0));
+                    Vector3Int DoorCoord1 = RoomWorldCoordinates;
+                    Vector3Int DoorCoord2 = RoomWorldCoordinates;
+                    switch (Entry3.Key)
+                    {
+                        case Directions.North:
+                            DoorCoord1 += new Vector3Int(4, 9, 0);
+                            DoorCoord2 += new Vector3Int(5, 9, 0);
+                            break;
+                        case Directions.South:
+                            DoorCoord1 += new Vector3Int(4, 0, 0);
+                            DoorCoord2 += new Vector3Int(5, 0, 0);
+                            break;
+                        case Directions.West:
+                            DoorCoord1 += new Vector3Int(0, 4, 0);
+                            DoorCoord2 += new Vector3Int(0, 5, 0);
+                            break;
+                        case Directions.East:
+                            DoorCoord1 += new Vector3Int(9, 4, 0);
+                            DoorCoord2 += new Vector3Int(9, 5, 0);
+                            break;
+                    }
+
+                    if (Entry3.Value)
+                    {
+                        BackgroundMap.SetTile(DoorCoord1, DoorTile);
+                        BackgroundMap.SetTile(DoorCoord2, DoorTile);
+                    } else
+                    {
+                        WallMap.SetTile(DoorCoord1, WallTile);
+                        WallMap.SetTile(DoorCoord2, WallTile);
+                    }
                 }
-                if (CurrentRoom.ConnectingDirections[Directions.West])
+
+                for (int x = 1; x < 4; x++)
                 {
-                    Instantiate(RightHallwayVisualizer, new Vector3(CurrentRoom.x - 0.5f, CurrentRoom.y, 0), new Quaternion(0, 0, 0, 0));
+                    WallMap.SetTile(new Vector3Int(RoomWorldCoordinates.x + x, RoomWorldCoordinates.y, 0), WallTile);
+                    WallMap.SetTile(new Vector3Int(RoomWorldCoordinates.x + x, RoomWorldCoordinates.y + 9, 0), WallTile);
+
+                    WallMap.SetTile(new Vector3Int(RoomWorldCoordinates.x + (9-x), RoomWorldCoordinates.y, 0), WallTile);
+                    WallMap.SetTile(new Vector3Int(RoomWorldCoordinates.x + (9-x), RoomWorldCoordinates.y + 9, 0), WallTile);
                 }
-                if (CurrentRoom.ConnectingDirections[Directions.East])
+
+                for (int y = 0; y < 4; y++)
                 {
-                    Instantiate(RightHallwayVisualizer, new Vector3(CurrentRoom.x + 0.5f, CurrentRoom.y, 0), new Quaternion(0, 0, 0, 0));
+                    WallMap.SetTile(new Vector3Int(RoomWorldCoordinates.x, RoomWorldCoordinates.y + y, 0), WallTile);
+                    WallMap.SetTile(new Vector3Int(RoomWorldCoordinates.x + 9, RoomWorldCoordinates.y + y, 0), WallTile);
+
+                    WallMap.SetTile(new Vector3Int(RoomWorldCoordinates.x, RoomWorldCoordinates.y + (9-y), 0), WallTile);
+                    WallMap.SetTile(new Vector3Int(RoomWorldCoordinates.x + 9, RoomWorldCoordinates.y + (9-y), 0), WallTile);
                 }
+
+                //GameObject RoomVisual = Instantiate(RoomVisualizer, new Vector3(CurrentRoom.x, CurrentRoom.y, 0), new Quaternion(0, 0, 0, 0));
+
+                //if (CurrentRoom.Type == "StartingRoom")
+                //{
+                //    RoomVisual.GetComponent<SpriteRenderer>().color = new Color(1, 0, 1);
+                //}
+                //if (CurrentRoom.Type == "BossRoom")
+                //{
+                //    RoomVisual.GetComponent<SpriteRenderer>().color = new Color(1, 0, 0);
+                //}
+                //if (CurrentRoom.Type == "TreasureRoom")
+                //{
+                //    RoomVisual.GetComponent<SpriteRenderer>().color = new Color(1, 1, 0);
+                //}
+
+                //if (CurrentRoom.ConnectingDirections[Directions.North])
+                //{
+                //    Instantiate(UpHallwayVisualizer, new Vector3(CurrentRoom.x, CurrentRoom.y + 0.5f, 0), new Quaternion(0, 0, 0, 0));
+                //}
+                //if (CurrentRoom.ConnectingDirections[Directions.South])
+                //{
+                //    Instantiate(UpHallwayVisualizer, new Vector3(CurrentRoom.x, CurrentRoom.y - 0.5f, 0), new Quaternion(0, 0, 0, 0));
+                //}
+                //if (CurrentRoom.ConnectingDirections[Directions.West])
+                //{
+                //    Instantiate(RightHallwayVisualizer, new Vector3(CurrentRoom.x - 0.5f, CurrentRoom.y, 0), new Quaternion(0, 0, 0, 0));
+                //}
+                //if (CurrentRoom.ConnectingDirections[Directions.East])
+                //{
+                //    Instantiate(RightHallwayVisualizer, new Vector3(CurrentRoom.x + 0.5f, CurrentRoom.y, 0), new Quaternion(0, 0, 0, 0));
+                //}
             }
         }
     }
