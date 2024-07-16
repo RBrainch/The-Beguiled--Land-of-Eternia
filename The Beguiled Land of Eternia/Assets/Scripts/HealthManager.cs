@@ -10,6 +10,7 @@ public class HealthManager : MonoBehaviour
     public int currentHealth = 50;
     public Image healthBar;
     public TMP_Text healthText;
+    public GameObject player;
 
     // Start is called before the first frame update
     void Start()
@@ -23,5 +24,9 @@ public class HealthManager : MonoBehaviour
         healthBar.fillAmount = ((float)currentHealth)/maxHealth;
 
         healthText.text = currentHealth + "/" + maxHealth;
+
+        if (currentHealth <= 0) {
+            Destroy(player);
+        }
     }
 }
