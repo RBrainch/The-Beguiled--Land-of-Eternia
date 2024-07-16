@@ -28,5 +28,9 @@ public class HealthManager : MonoBehaviour
         if (currentHealth == 0) {
             Destroy(player);
         }
+
+        if (currentHealth > maxHealth) {
+            currentHealth = maxHealth;
+        }
     }
 }
