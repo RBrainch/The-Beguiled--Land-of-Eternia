@@ -8,6 +8,9 @@ public class SpellController : MonoBehaviour
     public GameObject player;
     public Vector3 mousePos;
     public Vector3 missileDirection;
+    public bool Slot1Cast = true;
+    public bool Slot2Cast = true;
+    public bool Slot3Cast = true;
     
 
     
@@ -23,18 +26,19 @@ public class SpellController : MonoBehaviour
     {
         GetSpellSlot();
         Cast();
+        //print(Slot1Cast);
 
         
     }
 
     public int GetSpellSlot() {
-        if (Input.GetKeyDown(KeyCode.E)) {
+        if (Input.GetKeyDown(KeyCode.E) && Slot1Cast) {
             return 0;
         }
-        else if (Input.GetKeyDown(KeyCode.R)) {
+        else if (Input.GetKeyDown(KeyCode.R) && Slot2Cast) {
             return 1;
         }
-        else if (Input.GetKeyDown(KeyCode.F)) {
+        else if (Input.GetKeyDown(KeyCode.F) && Slot3Cast) {
             return 2;
         }
         else {
@@ -43,8 +47,9 @@ public class SpellController : MonoBehaviour
     }
 
     public void Cast() {
+        
         if (GetSpellSlot() != -1) {
-           
+           print(GetSpellSlot());
             Instantiate((spellsList[GetSpellSlot()]), player.transform.position, transform.rotation);
             
         }

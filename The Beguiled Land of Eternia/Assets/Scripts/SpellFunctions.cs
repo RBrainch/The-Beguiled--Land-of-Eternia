@@ -16,8 +16,8 @@ public class SpellFunctions : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        spellController = player.GetComponent<SpellController>();
         player = GameObject.FindWithTag("Player");
+        spellController = player.GetComponent<SpellController>();
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         missileDirection = (mousePos - player.transform.position).normalized;
 
