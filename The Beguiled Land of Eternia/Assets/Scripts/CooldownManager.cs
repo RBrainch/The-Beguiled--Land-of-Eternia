@@ -14,7 +14,7 @@ public class CooldownManager : MonoBehaviour
     public GameObject textObj;
     public GameObject player;
     public SpellController spellController;
-    public GameObject spells;
+    //public GameObject spells;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,8 +26,8 @@ public class CooldownManager : MonoBehaviour
     void Update()
     {
         
-        spells = FindObjectOfType<SpellFunctions>().gameObject;
-        spell = spells.GetComponent<SpellFunctions>();
+        //spells = FindObjectOfType<SpellFunctions>().gameObject;
+        //spell = spells.GetComponent<SpellFunctions>();
         if(Input.GetKeyDown(activateKey))
         {
             coolingDown = true;
