@@ -218,6 +218,7 @@ MonoBehaviour:
   textObj: {fileID: 0}
   player: {fileID: 0}
   spellController: {fileID: 0}
+  spells: {fileID: 0}
 --- !u!1 &152239466
 GameObject:
   m_ObjectHideFlags: 0
@@ -778,6 +779,7 @@ MonoBehaviour:
   textObj: {fileID: 886545636}
   player: {fileID: 1964117855}
   spellController: {fileID: 0}
+  spells: {fileID: 0}
 --- !u!114 &501290931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -796,6 +798,7 @@ MonoBehaviour:
   textObj: {fileID: 1204103926}
   player: {fileID: 1964117855}
   spellController: {fileID: 0}
+  spells: {fileID: 0}
 --- !u!114 &501290932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -814,6 +817,7 @@ MonoBehaviour:
   textObj: {fileID: 576142772}
   player: {fileID: 1964117855}
   spellController: {fileID: 0}
+  spells: {fileID: 0}
 --- !u!4 &501290933
 Transform:
   m_ObjectHideFlags: 0
@@ -1160,6 +1164,7 @@ MonoBehaviour:
   textObj: {fileID: 0}
   player: {fileID: 0}
   spellController: {fileID: 0}
+  spells: {fileID: 0}
 --- !u!114 &576142775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1817,6 +1822,7 @@ MonoBehaviour:
   textObj: {fileID: 0}
   player: {fileID: 0}
   spellController: {fileID: 0}
+  spells: {fileID: 0}
 --- !u!114 &886545638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2655,6 +2661,7 @@ MonoBehaviour:
   textObj: {fileID: 0}
   player: {fileID: 0}
   spellController: {fileID: 0}
+  spells: {fileID: 0}
 --- !u!114 &1204103929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3320,6 +3327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8acbe399c2b87e249be5482f8fe67f55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Camera: {fileID: 2047539890}
   MoveSpeed: 2.5
   spellImage1: {fileID: 0}
   spellImage2: {fileID: 0}

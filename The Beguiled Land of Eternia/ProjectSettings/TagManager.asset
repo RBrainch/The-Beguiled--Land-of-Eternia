@@ -11,6 +11,8 @@ TagManager:
   - SpellSlot3
   - FireRing
   - Enemy
+  - EnemyHealthBar
+  - HealthBarParent
   layers:
   - Default
   - TransparentFX

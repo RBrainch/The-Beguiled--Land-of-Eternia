@@ -1,25 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BasicEnemy : MonoBehaviour
 {
     public HealthManager Health;
+    public float maxHealthE = 50f;
+    public float currentHealthE = 50f;
     public GameObject Player;
-
+    public Image healthBar;
     public float MoveSpeed = 2f;
     public float DamageCooldown = 0;
-
+    public GameObject healthBarParent;
+    public Canvas enemyCanvas;
     public int MyDamage = 20;
     public Vector3 moveTowards;
     public bool InShield = false;
     void Start()
     {
+        currentHealthE = maxHealthE;
         Health = FindObjectOfType<HealthManager>();
         Player = FindObjectOfType<PlayerControllerChristian>().gameObject;
+        healthBarParent = GameObject.FindWithTag("HealthBarParent");
+        healthBar = transform.GetChild(0).transform.GetChild(0).transform.GetChild(1).GetComponent<Image>();
+        enemyCanvas = transform.GetChild(0).GetComponent<Canvas>();
     }
     void Update()
     {
+        enemyCanvas.transform.position = new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z);
+
+        //print(currentHealthE/maxHealthE);
+        healthBar.fillAmount = currentHealthE/maxHealthE;
+        if (currentHealthE < 0) {
+            Destroy(gameObject);
+            //print("hell0!");
+        }
         if (DamageCooldown > 0)
         {
             DamageCooldown -= Time.deltaTime;
@@ -44,10 +60,10 @@ public class BasicEnemy : MonoBehaviour
             transform.Translate(moveTowards);
         }
         else if (InShield) {
-
+            StartCoroutine(runAway());
         }
     }
-    private void OnTriggerStay2D(Collider2D Collision)
+    private void OnCollisionStay2D(Collision2D Collision)
     {
         if (Collision.gameObject == Player && DamageCooldown <= 0)
         {
@@ -55,4 +71,10 @@ public class BasicEnemy : MonoBehaviour
             Health.currentHealth -= MyDamage;
         }
     }
+
+     public IEnumerator runAway() {
+        transform.Translate(-moveTowards);
+        yield return new WaitForSeconds(2);
+        InShield = false;
+     }
 }
