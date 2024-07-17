@@ -9,9 +9,10 @@ public class HomingProjectile : MonoBehaviour
 
     public int MyDamage = 10;
 
+    public float myHealth = 5f;
     private Vector3 Velocity = Vector3.zero;
     private Vector3 Acceleration = Vector3.zero;
-
+    
     public HealthManager Health;
     private GameObject Player;
     void Start()
@@ -21,6 +22,9 @@ public class HomingProjectile : MonoBehaviour
     }
     void Update() //kill me
     {
+        if (myHealth <= 0) {
+            Destroy(gameObject);
+        }
         Vector3 TargetSteer = (Player.transform.position - transform.position).normalized * BaseSpeed; //where we WANT to point
         Vector3 Steer = (TargetSteer - Velocity).normalized * (TurnSpeed * Time.deltaTime); //where we CAN point
         Acceleration += Steer; //add the where we can point to acceleration

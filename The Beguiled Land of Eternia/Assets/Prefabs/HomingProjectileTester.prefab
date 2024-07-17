@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BaseSpeed: 5
-  TurnSpeed: 180
+  TurnSpeed: 360
   MyDamage: 10
   Health: {fileID: 0}
 --- !u!96 &162320341926520547
