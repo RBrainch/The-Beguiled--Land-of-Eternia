@@ -11,9 +11,11 @@ GameObject:
   - component: {fileID: 8196095241099947938}
   - component: {fileID: 8196095241099947939}
   - component: {fileID: 8196095241099947940}
+  - component: {fileID: 5828340380445066297}
+  - component: {fileID: 2308664752179540534}
   m_Layer: 0
   m_Name: FireRing
-  m_TagString: Untagged
+  m_TagString: FireRing
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -104,9 +106,49 @@ MonoBehaviour:
   description: 
   cooldown: 0
   icon: {fileID: 0}
+  enemyScript: {fileID: 0}
   speed: 10
   mousePos: {x: 0, y: 0, z: 0}
   missileDirection: {x: 0, y: 0, z: 0}
   healthParent: {fileID: 0}
   healthManager: {fileID: 0}
   anim: {fileID: 0}
+  enemyRB: {fileID: 0}
+  ImpulseSpeed: 10
+--- !u!58 &5828340380445066297
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8196095241099947941}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
+--- !u!50 &2308664752179540534
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8196095241099947941}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4

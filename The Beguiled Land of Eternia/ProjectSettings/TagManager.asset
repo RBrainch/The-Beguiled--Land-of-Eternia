@@ -9,6 +9,8 @@ TagManager:
   - SpellSlot
   - SpellSlot2
   - SpellSlot3
+  - FireRing
+  - Enemy
   layers:
   - Default
   - TransparentFX

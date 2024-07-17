@@ -11,6 +11,8 @@ public class BasicEnemy : MonoBehaviour
     public float DamageCooldown = 0;
 
     public int MyDamage = 20;
+    public Vector3 moveTowards;
+    public bool InShield = false;
     void Start()
     {
         Health = FindObjectOfType<HealthManager>();
@@ -36,7 +38,14 @@ public class BasicEnemy : MonoBehaviour
         dx *= Time.deltaTime * MoveSpeed;
         dy *= Time.deltaTime * MoveSpeed;
 
-        transform.Translate(dx, dy, 0);
+        moveTowards = new Vector3(dx, dy, 0);
+        
+        if (!InShield) {
+            transform.Translate(moveTowards);
+        }
+        else if (InShield) {
+
+        }
     }
     private void OnTriggerStay2D(Collider2D Collision)
     {

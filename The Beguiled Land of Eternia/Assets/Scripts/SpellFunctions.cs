@@ -13,6 +13,7 @@ public class SpellFunctions : MonoBehaviour
     public float cooldown;
     public Sprite icon;
     Rigidbody2D rb;
+    public BasicEnemy enemyScript;
     public float speed = 10f;
     //public Vector2 screenPosition;
     public Vector3 mousePos;
@@ -20,6 +21,8 @@ public class SpellFunctions : MonoBehaviour
     public GameObject healthParent;
     public HealthManager healthManager;
     public Animator anim;
+    public Rigidbody2D enemyRB;
+    public float ImpulseSpeed = 10f;
 
     // Start is called before the first frame update
     void Start()
@@ -44,12 +47,15 @@ public class SpellFunctions : MonoBehaviour
             HealingSpell();
             Destroy(gameObject);
         }
+        if (gameObject.CompareTag("FireRing")) {
+            FireRing();
+        }
 
         
     }
     
     void MagicMissile() {
-        Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), gameObject.GetComponent<Collider2D>());
+            Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), gameObject.GetComponent<Collider2D>());
             rb = GetComponent<Rigidbody2D>();
             //print(mousePos.normalized);
             Vector3 rotation = mousePos - player.transform.position;
@@ -68,6 +74,13 @@ public class SpellFunctions : MonoBehaviour
     void HealingSpell() {
         healthManager.currentHealth += 50;
     }
+    void FireRing() {
+        Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), gameObject.GetComponent<Collider2D>());
+        transform.position = player.transform.position;
+    }
+    
+
+    
     void OnTriggerEnter2D(Collider2D other) {
         
         if (gameObject.CompareTag("Missile")) {
@@ -78,10 +91,44 @@ public class SpellFunctions : MonoBehaviour
            
             Destroy(gameObject);
         }
-
     }
+        
+
+        void OnTriggerStay2D(Collider2D other) {
+            
+            if (gameObject.CompareTag("FireRing") && other.CompareTag("Enemy")) {
+            //enemyRB = other.GetComponent<Rigidbody2D>();
+            enemyScript = other.GetComponent<BasicEnemy>();
+            print(enemyScript.InShield);
+            enemyScript.InShield = true;
+
+
+
+            //enemyRB.AddForce(enemyScript.moveTowards * -ImpulseSpeed, ForceMode2D.Impulse);
+            StartCoroutine(FireTimer());
+        }
+            
+        }
+
+        void OnTriggerExit2D(Collider2D other) {
+            if (gameObject.CompareTag("FireRing") && other.CompareTag("Enemy")) {
+                enemyScript.InShield = false;
+            }
+
+        }
+        IEnumerator FireTimer() {
+        
+        yield return new WaitForSeconds(2);
+        enemyScript.InShield = false;
+        Destroy(gameObject);
+        }
+
+    
+}
+
+   
 
     
 
       
-}
+

@@ -212,7 +212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f058f303807a4167a1fe5b8c7a81df1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 0
+  cooldown: 5
   activateKey: 101
   parent: {fileID: 0}
   textObj: {fileID: 0}
@@ -772,7 +772,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f058f303807a4167a1fe5b8c7a81df1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 0
+  cooldown: 5
   activateKey: 102
   parent: {fileID: 1941619618}
   textObj: {fileID: 886545636}
@@ -790,7 +790,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f058f303807a4167a1fe5b8c7a81df1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 0
+  cooldown: 5
   activateKey: 114
   parent: {fileID: 45073581}
   textObj: {fileID: 1204103926}
@@ -808,7 +808,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f058f303807a4167a1fe5b8c7a81df1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 0
+  cooldown: 3
   activateKey: 101
   parent: {fileID: 80563214}
   textObj: {fileID: 576142772}
@@ -1154,7 +1154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f058f303807a4167a1fe5b8c7a81df1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 0
+  cooldown: 5
   activateKey: 101
   parent: {fileID: 80563214}
   textObj: {fileID: 0}
@@ -1585,6 +1585,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: {fileID: 909172219}
   Player: {fileID: 1964117855}
+  healthParent: {fileID: 909172217}
   MoveSpeed: 2
   DamageCooldown: 0
   MyDamage: 20
@@ -1599,10 +1600,9 @@ GameObject:
   - component: {fileID: 856459794}
   - component: {fileID: 856459796}
   - component: {fileID: 856459795}
-  - component: {fileID: 856459797}
   m_Layer: 5
   m_Name: Spell Image 3
-  m_TagString: SpellSlot3
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1665,24 +1665,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 856459793}
   m_CullTransparentMesh: 1
---- !u!114 &856459797
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 856459793}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18804e242710415b9192a248e03a856, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  description: {fileID: 183117706}
-  spellFunctions: {fileID: 3941753946424114323, guid: 74acad8c31337b141a84d3f31548a526, type: 3}
-  nameText: {fileID: 286519505}
-  powerText: {fileID: 570179102}
-  cooldownText: {fileID: 1572591631}
-  descriptionText: {fileID: 2061252562}
 --- !u!1 &867468494
 GameObject:
   m_ObjectHideFlags: 0
@@ -1694,10 +1676,9 @@ GameObject:
   - component: {fileID: 867468495}
   - component: {fileID: 867468497}
   - component: {fileID: 867468496}
-  - component: {fileID: 867468498}
   m_Layer: 5
   m_Name: Spell Image 1
-  m_TagString: SpellSlot
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1760,24 +1741,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 867468494}
   m_CullTransparentMesh: 1
---- !u!114 &867468498
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 867468494}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18804e242710415b9192a248e03a856, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  description: {fileID: 183117706}
-  spellFunctions: {fileID: -3138151055009919960, guid: d8b181180fd38934cb67da281fbc2f5c, type: 3}
-  nameText: {fileID: 286519505}
-  powerText: {fileID: 570179102}
-  cooldownText: {fileID: 1572591631}
-  descriptionText: {fileID: 2061252562}
 --- !u!1 &886545636
 GameObject:
   m_ObjectHideFlags: 0
@@ -1809,7 +1772,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f058f303807a4167a1fe5b8c7a81df1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 0
+  cooldown: 5
   activateKey: 102
   parent: {fileID: 1941619618}
   textObj: {fileID: 0}
@@ -2078,10 +2041,9 @@ GameObject:
   - component: {fileID: 977080333}
   - component: {fileID: 977080335}
   - component: {fileID: 977080334}
-  - component: {fileID: 977080336}
   m_Layer: 5
   m_Name: Spell Image 2
-  m_TagString: SpellSlot2
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2144,24 +2106,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 977080332}
   m_CullTransparentMesh: 1
---- !u!114 &977080336
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 977080332}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18804e242710415b9192a248e03a856, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  description: {fileID: 183117706}
-  spellFunctions: {fileID: 5244671726930141516, guid: 61fbe6f54e74fcc4a80bca19545aedc6, type: 3}
-  nameText: {fileID: 286519505}
-  powerText: {fileID: 570179102}
-  cooldownText: {fileID: 1572591631}
-  descriptionText: {fileID: 2061252562}
 --- !u!1 &1004539969
 GameObject:
   m_ObjectHideFlags: 0
@@ -2262,6 +2206,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: {fileID: 0}
   Player: {fileID: 1964117855}
+  healthParent: {fileID: 909172217}
   MoveSpeed: 2
   DamageCooldown: 0
   MyDamage: 20
@@ -2645,7 +2590,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f058f303807a4167a1fe5b8c7a81df1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 0
+  cooldown: 5
   activateKey: 114
   parent: {fileID: 45073581}
   textObj: {fileID: 0}
