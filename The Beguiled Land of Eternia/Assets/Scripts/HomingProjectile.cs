@@ -47,6 +47,9 @@ public class HomingProjectile : MonoBehaviour
         {
             Health.currentHealth -= MyDamage;
         }
-        Destroy(gameObject);
+        if (!Collision.gameObject.CompareTag("Projectile"))
+        {
+            Destroy(gameObject);
+        }
     }
 }
