@@ -17,7 +17,6 @@ public class RoomGen : MonoBehaviour
     public TileBase BackgroundTile;
     public TileBase StarterBackgroundTile;
     public TileBase BossBackgroundTile;
-    public TileBase TreasureBackgroundTile;
     void Start()
     {
         RoomGenerator DearGod = new RoomGenerator(10, 12);
@@ -36,9 +35,6 @@ public class RoomGen : MonoBehaviour
                         break;
                     case "BossRoom":
                         TileToUse = BossBackgroundTile;
-                        break;
-                    case "TreasureRoom":
-                        TileToUse = TreasureBackgroundTile;
                         break;
                 }
 
@@ -114,10 +110,6 @@ public class RoomGen : MonoBehaviour
                 //{
                 //    RoomVisual.GetComponent<SpriteRenderer>().color = new Color(1, 0, 0);
                 //}
-                //if (CurrentRoom.Type == "TreasureRoom")
-                //{
-                //    RoomVisual.GetComponent<SpriteRenderer>().color = new Color(1, 1, 0);
-                //}
 
                 //if (CurrentRoom.ConnectingDirections[Directions.North])
                 //{
@@ -174,29 +166,6 @@ public class RoomGenerator
             if (BossRoomResult.Success)
             {
                 BossRoomGenerated = true;
-            }
-        }
-
-        bool GenerateTreasureRooms = true;
-        float GenerateRoll = Random.Range(2.5f, 4);
-        while (GenerateTreasureRooms)
-        {
-            if (GenerateRoll >= 3)
-            {
-                bool RoomGenerated = false;
-                while (!RoomGenerated)
-                {
-                    GenerationResult TreasureRoomResult = GenerateRoom("TreasureRoom");
-                    if (TreasureRoomResult.Success)
-                    {
-                        RoomGenerated = true;
-                    }
-                }
-                GenerateRoll = Random.Range(0, 4);
-            }
-            else
-            {
-                GenerateTreasureRooms = false;
             }
         }
 
@@ -285,7 +254,7 @@ public class RoomGenerator
             return new GenerationResult(false);
         }
 
-        if (Type == "BossRoom" || Type == "TreasureRoom")
+        if (Type == "BossRoom")
         {
             if (Mathf.Abs((int)RoomCheckCoordinates.x) <= 1 && Mathf.Abs((int)RoomCheckCoordinates.y) <= 1)
             {
