@@ -12,6 +12,8 @@ public class RoomGen : MonoBehaviour
     public List<TileBase> WallTiles;
     public List<TileBase> BackgroundTiles;
 
+    public List<GameObject> Enemies;
+
     public TileBase StarterBackgroundTile;
     public TileBase StarterWallTile;
     public TileBase BossBackgroundTile;
@@ -103,6 +105,16 @@ public class RoomGen : MonoBehaviour
 
                     WallMap.SetTile(new Vector3Int(RoomWorldCoordinates.x, RoomWorldCoordinates.y + (9-y), 0), MyWallTile);
                     WallMap.SetTile(new Vector3Int(RoomWorldCoordinates.x + 9, RoomWorldCoordinates.y + (9-y), 0), MyWallTile);
+                }
+
+                if (CurrentRoom.EnemyCount > 0)
+                {
+                    for (int i = 0; i < CurrentRoom.EnemyCount; i++)
+                    {
+                        int EnemyIndex = Random.Range(0, Enemies.Count);
+                        GameObject Enemy = Enemies[EnemyIndex];
+                        Instantiate(Enemy, new Vector3(RoomWorldCoordinates.x + Random.Range(3, 6), RoomWorldCoordinates.y + Random.Range(3, 6), 0), new Quaternion());
+                    }
                 }
             }
         }
@@ -262,6 +274,7 @@ public class Room
     public string Type;
     public bool IsNode;
     public Dictionary<Directions, bool> ConnectingDirections = new Dictionary<Directions, bool>();
+    public int EnemyCount;
     public Room(int room_x, int room_y, RoomGenerator Parent, string AssignedType)
     {
         x = room_x;
@@ -276,6 +289,14 @@ public class Room
         else
         {
             IsNode = false;
+        }
+
+        if (Type == "Room")
+        {
+            EnemyCount = Random.Range(1, 3);
+        } else
+        {
+            EnemyCount = 0;
         }
 
         ConnectingDirections[Directions.North] = false;

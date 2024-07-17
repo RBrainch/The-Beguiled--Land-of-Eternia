@@ -15,8 +15,10 @@ public class BasicEnemy : MonoBehaviour
     public GameObject healthBarParent;
     public Canvas enemyCanvas;
     public int MyDamage = 20;
-    public Vector3 moveTowards;
+    public Vector2 moveTowards;
     public bool InShield = false;
+    private Rigidbody2D RigidBody;
+    public float Eyesight = 5;
     void Start()
     {
         currentHealthE = maxHealthE;
@@ -25,6 +27,7 @@ public class BasicEnemy : MonoBehaviour
         healthBarParent = GameObject.FindWithTag("HealthBarParent");
         healthBar = transform.GetChild(0).transform.GetChild(0).transform.GetChild(1).GetComponent<Image>();
         enemyCanvas = transform.GetChild(0).GetComponent<Canvas>();
+        RigidBody = GetComponent<Rigidbody2D>();
     }
     void Update()
     {
@@ -41,26 +44,37 @@ public class BasicEnemy : MonoBehaviour
             DamageCooldown -= Time.deltaTime;
         }
 
-        float Angle = Mathf.Atan2(Player.transform.position.y - transform.position.y, Player.transform.position.x - transform.position.x);
-        float dx = Mathf.Cos(Angle);
-        float dy = Mathf.Sin(Angle);
-
-        if (dx != 0 && dy != 0)
+        bool LineOfSight = false;
+        if ((Player.transform.position - transform.position).magnitude < Eyesight)
         {
-            dx /= Mathf.Sqrt(2);
-            dy /= Mathf.Sqrt(2);
+            LineOfSight = true;
         }
+        if (LineOfSight)
+        {
+            float Angle = Mathf.Atan2(Player.transform.position.y - transform.position.y, Player.transform.position.x - transform.position.x);
+            float dx = Mathf.Cos(Angle);
+            float dy = Mathf.Sin(Angle);
 
-        dx *= Time.deltaTime * MoveSpeed;
-        dy *= Time.deltaTime * MoveSpeed;
+            if (dx != 0 && dy != 0)
+            {
+                dx /= Mathf.Sqrt(2);
+                dy /= Mathf.Sqrt(2);
+            }
 
-        moveTowards = new Vector3(dx, dy, 0);
-        
-        if (!InShield) {
-            transform.Translate(moveTowards);
-        }
-        else if (InShield) {
-            StartCoroutine(runAway());
+            dx *= MoveSpeed;
+            dy *= MoveSpeed;
+
+            moveTowards = new Vector2(dx, dy);
+
+            if (!InShield)
+            {
+                RigidBody.velocity = moveTowards;
+            } else if (InShield)
+            {
+                StartCoroutine(runAway());
+            }
+        } else {
+            RigidBody.velocity = new Vector2(0, 0);
         }
     }
     private void OnCollisionStay2D(Collision2D Collision)
@@ -73,7 +87,7 @@ public class BasicEnemy : MonoBehaviour
     }
 
      public IEnumerator runAway() {
-        transform.Translate(-moveTowards);
+        RigidBody.velocity = -moveTowards;
         yield return new WaitForSeconds(2);
         InShield = false;
      }

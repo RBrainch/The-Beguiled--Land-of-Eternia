@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8856134629596263064}
   - component: {fileID: 8856134629596263066}
   - component: {fileID: 8856134629596263065}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: HealthBarMax
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,8 @@ GameObject:
   - component: {fileID: 8856134630231821391}
   - component: {fileID: 8856134630231821385}
   - component: {fileID: 8856134630231821390}
-  m_Layer: 0
+  - component: {fileID: 3854523187258572518}
+  m_Layer: 13
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -229,6 +230,27 @@ PolygonCollider2D:
       - {x: 0.3125, y: -0.40625}
       - {x: 0.5, y: -0.59375}
       - {x: 0.71875, y: -0.53125}
+--- !u!50 &3854523187258572518
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8856134630231821389}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &8856134630419225568
 GameObject:
   m_ObjectHideFlags: 0
@@ -238,7 +260,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8856134630419225569}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: HealthBarParent
   m_TagString: HealthBarParent
   m_Icon: {fileID: 0}
@@ -274,7 +296,7 @@ GameObject:
   - component: {fileID: 8856134630757945796}
   - component: {fileID: 8856134630757945803}
   - component: {fileID: 8856134630757945802}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: EnemyCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -374,7 +396,7 @@ GameObject:
   - component: {fileID: 8856134630848845208}
   - component: {fileID: 8856134630848845210}
   - component: {fileID: 8856134630848845209}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}

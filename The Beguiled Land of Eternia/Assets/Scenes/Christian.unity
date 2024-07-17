@@ -747,6 +747,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bd8c14cb27639f443a1402e5fa7af9f7, type: 2}
   - {fileID: 11400000, guid: c8bd46f43bde9a14297fde42d014bd41, type: 2}
   - {fileID: 11400000, guid: 35f612b2e190ee84e8a7079c7b516dec, type: 2}
+  Enemies:
+  - {fileID: 8856134630231821389, guid: 2aad49a3c293c864abda78e2449ebb45, type: 3}
   StarterBackgroundTile: {fileID: 11400000, guid: 7a7ad9486e1d17c4a860789df6585bf1, type: 2}
   StarterWallTile: {fileID: 11400000, guid: b3a7f7ad12116ce4e856740a9c7b406d, type: 2}
   BossBackgroundTile: {fileID: 11400000, guid: 5f6ab75fd4e4c6c4981a87a856d582b6, type: 2}
@@ -864,7 +866,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1812159743}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6, y: 3, z: 0}
+  m_LocalPosition: {x: 5, y: 5, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
