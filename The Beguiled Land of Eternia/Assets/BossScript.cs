@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BasicEnemy : MonoBehaviour
+public class BossScript : MonoBehaviour
 {
     public HealthManager Health;
-    public float maxHealthE = 50f;
-    public float currentHealthE = 50f;
+    public float maxHealthE = 500f;
+    public float currentHealthE = 500f;
     public GameObject Player;
     public Image healthBar;
     public float MoveSpeed = 2f;
@@ -18,7 +18,10 @@ public class BasicEnemy : MonoBehaviour
     public Vector2 moveTowards;
     public bool InShield = false;
     private Rigidbody2D RigidBody;
-    public float Eyesight = 5;
+    public float Eyesight = 10;
+    public GameObject Projectile;
+    public float AttackInterval = 5;
+    public float AttackTimer = 0;
     void Start()
     {
         currentHealthE = maxHealthE;
@@ -33,9 +36,20 @@ public class BasicEnemy : MonoBehaviour
     {
         enemyCanvas.transform.position = new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z);
 
+        AttackTimer += Time.deltaTime;
+        if (AttackTimer >= AttackInterval)
+        {
+            AttackTimer -= AttackInterval;
+            for (int i = 0; i < 5; i++)
+            {
+                Instantiate(Projectile, transform.position + new Vector3(Random.Range(-0.5f,0.5f), Random.Range(-0.5f,0.5f), 0), transform.rotation);
+            }
+        }
+
         //print(currentHealthE/maxHealthE);
-        healthBar.fillAmount = currentHealthE/maxHealthE;
-        if (currentHealthE < 0) {
+        healthBar.fillAmount = currentHealthE / maxHealthE;
+        if (currentHealthE < 0)
+        {
             Destroy(gameObject);
             //print("hell0!");
         }
@@ -69,12 +83,14 @@ public class BasicEnemy : MonoBehaviour
             if (!InShield)
             {
                 RigidBody.velocity = moveTowards;
-            } else if (InShield)
-            {
-                PushAway();
-                //StartCoroutine(runAway());
             }
-        } else {
+            else if (InShield)
+            {
+                StartCoroutine(runAway());
+            }
+        }
+        else
+        {
             RigidBody.velocity = new Vector2(0, 0);
         }
     }
@@ -87,14 +103,10 @@ public class BasicEnemy : MonoBehaviour
         }
     }
 
-     public IEnumerator runAway() {
+    public IEnumerator runAway()
+    {
         RigidBody.velocity = -moveTowards;
         yield return new WaitForSeconds(2);
         InShield = false;
-     }
-
-     public void PushAway() {
-        currentHealthE -= 1.5f;
-        RigidBody.AddForce(-moveTowards * 600, ForceMode2D.Force);
-     }
+    }
 }

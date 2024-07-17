@@ -749,6 +749,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 35f612b2e190ee84e8a7079c7b516dec, type: 2}
   Enemies:
   - {fileID: 8856134630231821389, guid: 2aad49a3c293c864abda78e2449ebb45, type: 3}
+  BossEnemy: {fileID: 2151381990115122597, guid: ccd6a2250055a944e8519314ac9a2175, type: 3}
   StarterBackgroundTile: {fileID: 11400000, guid: 7a7ad9486e1d17c4a860789df6585bf1, type: 2}
   StarterWallTile: {fileID: 11400000, guid: b3a7f7ad12116ce4e856740a9c7b406d, type: 2}
   BossBackgroundTile: {fileID: 11400000, guid: 5f6ab75fd4e4c6c4981a87a856d582b6, type: 2}

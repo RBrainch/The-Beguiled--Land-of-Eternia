@@ -75,6 +75,7 @@ public class SpellFunctions : MonoBehaviour
         healthManager.currentHealth += 50;
     }
     void FireRing() {
+        StartCoroutine(FireTimer());
         Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), gameObject.GetComponent<Collider2D>());
         transform.position = player.transform.position;
     }
@@ -92,7 +93,7 @@ public class SpellFunctions : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (gameObject.CompareTag("FireRing") && other.CompareTag("Enemy")) {
+        if (gameObject.CompareTag("FireRing") && (other.CompareTag("Enemy") || other.CompareTag("Projectile"))) {
             //enemyRB = other.GetComponent<Rigidbody2D>();
 //            print(other.name);
             enemyScript = other.GetComponent<BasicEnemy>();
@@ -104,7 +105,7 @@ public class SpellFunctions : MonoBehaviour
 
 
             //enemyRB.AddForce(enemyScript.moveTowards * -ImpulseSpeed, ForceMode2D.Impulse);
-            StartCoroutine(FireTimer());
+            
         }
     }
         

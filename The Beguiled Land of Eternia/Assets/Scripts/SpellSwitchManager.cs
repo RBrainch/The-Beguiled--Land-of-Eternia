@@ -20,7 +20,7 @@ public class SpellSwitchManager : MonoBehaviour
     public Button button2;
     public Button button3;
     public GameObject magicMissile;
-    public GameObject catapault;
+    public GameObject fireRing;
     public GameObject heal;
     public GameObject spellSwitchThing;
     public GameObject spellTable;
@@ -28,8 +28,8 @@ public class SpellSwitchManager : MonoBehaviour
     void Start()
     {
         button1.onClick.AddListener(() => SetSpellTo(magicMissile));
-        button2.onClick.AddListener(() => SetSpellTo(catapault));
-        button3.onClick.AddListener(() =>SetSpellTo(heal));
+        button2.onClick.AddListener(() => SetSpellTo(fireRing));
+        button3.onClick.AddListener(() => SetSpellTo(heal));
     }
 
     // Update is called once per frame
@@ -52,16 +52,19 @@ public class SpellSwitchManager : MonoBehaviour
             spellSlot1.spellFunctions = spell.GetComponent<SpellFunctions>();
             cooldownManager1.spell = spell.GetComponent<SpellFunctions>();
             spellController.spellsList[0] = spell;
+            print("Spell slot 1 assigned");
         }else if(selectedSlot == 2)
         {
             spellSlot2.spellFunctions = spell.GetComponent<SpellFunctions>();
             cooldownManager2.spell = spell.GetComponent<SpellFunctions>();
             spellController.spellsList[1] = spell;
+            print("Spell slot 2 assigned");
         }else if(selectedSlot == 3)
         {
             spellSlot3.spellFunctions = spell.GetComponent<SpellFunctions>();
             cooldownManager3.spell = spell.GetComponent<SpellFunctions>();
             spellController.spellsList[2] = spell;
+            print("Spell slot 3 assigned");
         }
 
         if(selectedSlot == 3)
@@ -69,7 +72,7 @@ public class SpellSwitchManager : MonoBehaviour
             selectedSlot = 1;
             spellSwitchThing.SetActive(false);
             Time.timeScale = 1;
-
+            print("Finished spell assigning");
         }else
         {
             selectedSlot++;
