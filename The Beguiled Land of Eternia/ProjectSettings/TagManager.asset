@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Heal
+  - Missile
+  - FireRing
+  - Projectile
+  - Enemy
+  - HealthBarParent
   layers:
   - Default
   - TransparentFX
@@ -18,7 +24,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - Enemy
   - 
   - 
   - 
