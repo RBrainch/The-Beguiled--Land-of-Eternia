@@ -13,6 +13,7 @@ public class RoomGen : MonoBehaviour
     public List<TileBase> BackgroundTiles;
 
     public List<GameObject> Enemies;
+    public GameObject BossEnemy;
 
     public TileBase StarterBackgroundTile;
     public TileBase StarterWallTile;
@@ -115,6 +116,11 @@ public class RoomGen : MonoBehaviour
                         GameObject Enemy = Enemies[EnemyIndex];
                         Instantiate(Enemy, new Vector3(RoomWorldCoordinates.x + Random.Range(3, 6), RoomWorldCoordinates.y + Random.Range(3, 6), 0), new Quaternion());
                     }
+                }
+
+                if (CurrentRoom.Type == "BossRoom")
+                {
+                    Instantiate(BossEnemy, new Vector3(RoomWorldCoordinates.x + 4.5f, RoomWorldCoordinates.y + 4.5f, 0), new Quaternion());
                 }
             }
         }
