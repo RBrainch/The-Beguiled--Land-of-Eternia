@@ -104,8 +104,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8856134630231821389}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6, y: 3.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 6.0038, y: 3.3759, z: 0}
+  m_LocalScale: {x: 0.77903, y: 0.77903, z: 0.77903}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8856134630757945797}
@@ -186,8 +186,9 @@ MonoBehaviour:
   healthBarParent: {fileID: 0}
   enemyCanvas: {fileID: 0}
   MyDamage: 20
-  moveTowards: {x: 0, y: 0, z: 0}
+  moveTowards: {x: 0, y: 0}
   InShield: 0
+  Eyesight: 5
 --- !u!60 &8856134630231821390
 PolygonCollider2D:
   m_ObjectHideFlags: 0

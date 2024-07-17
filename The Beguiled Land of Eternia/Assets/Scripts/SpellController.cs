@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SpellController : MonoBehaviour
 {
     public GameObject[] spellsList = new GameObject[3];
     public GameObject player;
+    public GameObject enemy;
     public Vector3 mousePos;
     public Vector3 missileDirection;
     public bool Slot1Cast = true;
@@ -18,12 +20,17 @@ public class SpellController : MonoBehaviour
     void Start()
     {
         player = GameObject.FindWithTag("Player");
+        enemy = GameObject.FindWithTag("Enemy");
         // player = FindObjectOfType<PlayerController>().gameObject;
     }
 
     // Update is called once per frame
     void Update()
     {
+        enemy = GameObject.FindWithTag("Enemy");
+        if (enemy == null) {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
         GetSpellSlot();
         Cast();
         //print(Slot1Cast);
