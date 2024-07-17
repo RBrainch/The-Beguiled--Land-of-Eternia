@@ -891,7 +891,7 @@ GameObject:
   - component: {fileID: 501290931}
   - component: {fileID: 501290930}
   m_Layer: 0
-  m_Name: Cooldown Manager
+  m_Name: Slot1Cooldown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -904,7 +904,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 501290929}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1f058f303807a4167a1fe5b8c7a81df1, type: 3}
   m_Name: 
@@ -922,12 +922,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 501290929}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1f058f303807a4167a1fe5b8c7a81df1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 5244671726930141516, guid: 61fbe6f54e74fcc4a80bca19545aedc6, type: 3}
+  spell: {fileID: 8196095241099947940, guid: 0957d36bc12a098469312868a0a90544, type: 3}
   activateKey: 114
   parent: {fileID: 45073581}
   textObj: {fileID: 1204103926}
@@ -996,7 +996,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedSlot: 1
-  cooldownManager: {fileID: 501290932}
+  cooldownManager1: {fileID: 501290932}
+  cooldownManager2: {fileID: 699370459}
+  cooldownManager3: {fileID: 1864568995}
   spellSlot1: {fileID: 867468498}
   spellSlot2: {fileID: 977080336}
   spellSlot3: {fileID: 856459797}
@@ -1022,7 +1024,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &557181559
 GameObject:
@@ -1562,6 +1564,94 @@ RectTransform:
   m_AnchoredPosition: {x: -210, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &699370456
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 699370460}
+  - component: {fileID: 699370459}
+  - component: {fileID: 699370458}
+  - component: {fileID: 699370457}
+  m_Layer: 0
+  m_Name: Slot2Cooldown
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &699370457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 699370456}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f058f303807a4167a1fe5b8c7a81df1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spell: {fileID: 3941753946424114323, guid: 74acad8c31337b141a84d3f31548a526, type: 3}
+  activateKey: 102
+  parent: {fileID: 1941619618}
+  textObj: {fileID: 886545636}
+  player: {fileID: 1964117855}
+  spellController: {fileID: 0}
+--- !u!114 &699370458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 699370456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f058f303807a4167a1fe5b8c7a81df1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spell: {fileID: 8196095241099947940, guid: 0957d36bc12a098469312868a0a90544, type: 3}
+  activateKey: 114
+  parent: {fileID: 45073581}
+  textObj: {fileID: 1204103926}
+  player: {fileID: 1964117855}
+  spellController: {fileID: 0}
+--- !u!114 &699370459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 699370456}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f058f303807a4167a1fe5b8c7a81df1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spell: {fileID: -3138151055009919960, guid: d8b181180fd38934cb67da281fbc2f5c, type: 3}
+  activateKey: 101
+  parent: {fileID: 80563214}
+  textObj: {fileID: 576142772}
+  player: {fileID: 1964117855}
+  spellController: {fileID: 0}
+--- !u!4 &699370460
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 699370456}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 112.76198, y: 196.71722, z: -9.017137}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &720093603
 GameObject:
   m_ObjectHideFlags: 0
@@ -3718,6 +3808,94 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1760971671}
   m_CullTransparentMesh: 1
+--- !u!1 &1864568992
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1864568996}
+  - component: {fileID: 1864568995}
+  - component: {fileID: 1864568994}
+  - component: {fileID: 1864568993}
+  m_Layer: 0
+  m_Name: Slot3Cooldown
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1864568993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1864568992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f058f303807a4167a1fe5b8c7a81df1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spell: {fileID: 3941753946424114323, guid: 74acad8c31337b141a84d3f31548a526, type: 3}
+  activateKey: 102
+  parent: {fileID: 1941619618}
+  textObj: {fileID: 886545636}
+  player: {fileID: 1964117855}
+  spellController: {fileID: 0}
+--- !u!114 &1864568994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1864568992}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f058f303807a4167a1fe5b8c7a81df1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spell: {fileID: 8196095241099947940, guid: 0957d36bc12a098469312868a0a90544, type: 3}
+  activateKey: 114
+  parent: {fileID: 45073581}
+  textObj: {fileID: 1204103926}
+  player: {fileID: 1964117855}
+  spellController: {fileID: 0}
+--- !u!114 &1864568995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1864568992}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f058f303807a4167a1fe5b8c7a81df1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spell: {fileID: -3138151055009919960, guid: d8b181180fd38934cb67da281fbc2f5c, type: 3}
+  activateKey: 101
+  parent: {fileID: 80563214}
+  textObj: {fileID: 576142772}
+  player: {fileID: 1964117855}
+  spellController: {fileID: 0}
+--- !u!4 &1864568996
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1864568992}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 112.76198, y: 196.71722, z: -9.017137}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1882779343
 GameObject:
   m_ObjectHideFlags: 0
@@ -3867,7 +4045,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellsList:
   - {fileID: 5742805745412394632, guid: d8b181180fd38934cb67da281fbc2f5c, type: 3}
-  - {fileID: 8812960726411524863, guid: 61fbe6f54e74fcc4a80bca19545aedc6, type: 3}
+  - {fileID: 8196095241099947941, guid: 0957d36bc12a098469312868a0a90544, type: 3}
   - {fileID: 782309851298768672, guid: 74acad8c31337b141a84d3f31548a526, type: 3}
   player: {fileID: 1964117855}
   mousePos: {x: 0, y: 0, z: 0}

@@ -7,7 +7,11 @@ using TMPro;
 public class SpellSwitchManager : MonoBehaviour
 {
     public int selectedSlot = 1;
-    public CooldownManager cooldownManager;
+    public CooldownManager cooldownManager1;
+    public CooldownManager cooldownManager2;
+    public CooldownManager cooldownManager3;
+
+
     public DescriptionRenderer spellSlot1;
     public DescriptionRenderer spellSlot2;
     public DescriptionRenderer spellSlot3;
@@ -46,17 +50,17 @@ public class SpellSwitchManager : MonoBehaviour
         if(selectedSlot == 1)
         {
             spellSlot1.spellFunctions = spell.GetComponent<SpellFunctions>();
-            cooldownManager.spell = spell.GetComponent<SpellFunctions>();
+            cooldownManager1.spell = spell.GetComponent<SpellFunctions>();
             spellController.spellsList[0] = spell;
         }else if(selectedSlot == 2)
         {
             spellSlot2.spellFunctions = spell.GetComponent<SpellFunctions>();
-            cooldownManager.spell = spell.GetComponent<SpellFunctions>();
+            cooldownManager2.spell = spell.GetComponent<SpellFunctions>();
             spellController.spellsList[1] = spell;
         }else if(selectedSlot == 3)
         {
             spellSlot3.spellFunctions = spell.GetComponent<SpellFunctions>();
-            cooldownManager.spell = spell.GetComponent<SpellFunctions>();
+            cooldownManager3.spell = spell.GetComponent<SpellFunctions>();
             spellController.spellsList[2] = spell;
         }
 
