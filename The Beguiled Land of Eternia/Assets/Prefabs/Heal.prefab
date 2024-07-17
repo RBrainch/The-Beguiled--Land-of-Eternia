@@ -51,7 +51,7 @@ MonoBehaviour:
   name: Heal
   description: Healing
   cooldown: 20
-  icon: {fileID: 21300000, guid: 1a7a5bde063014eec9fbebd58cb37a78, type: 3}
+  icon: {fileID: 21300000, guid: 5651981e0d0e842a4b630774aee92117, type: 3}
   enemyScript: {fileID: 0}
   speed: 10
   mousePos: {x: 0, y: 0, z: 0}
