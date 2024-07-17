@@ -212,12 +212,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f058f303807a4167a1fe5b8c7a81df1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 0
+  spell: {fileID: 0}
   activateKey: 101
   parent: {fileID: 0}
   textObj: {fileID: 0}
   player: {fileID: 0}
   spellController: {fileID: 0}
+  spells: {fileID: 0}
 --- !u!1 &152239466
 GameObject:
   m_ObjectHideFlags: 0
@@ -772,12 +773,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f058f303807a4167a1fe5b8c7a81df1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 50
+  spell: {fileID: 0}
   activateKey: 102
   parent: {fileID: 1941619618}
   textObj: {fileID: 886545636}
   player: {fileID: 1964117855}
   spellController: {fileID: 0}
+  spells: {fileID: 782309851298768672, guid: 74acad8c31337b141a84d3f31548a526, type: 3}
 --- !u!114 &501290931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -790,12 +792,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f058f303807a4167a1fe5b8c7a81df1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 0
+  spell: {fileID: 0}
   activateKey: 114
   parent: {fileID: 45073581}
   textObj: {fileID: 1204103926}
   player: {fileID: 1964117855}
   spellController: {fileID: 0}
+  spells: {fileID: 8196095241099947941, guid: 0957d36bc12a098469312868a0a90544, type: 3}
 --- !u!114 &501290932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -808,12 +811,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f058f303807a4167a1fe5b8c7a81df1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 3
+  spell: {fileID: 0}
   activateKey: 101
   parent: {fileID: 80563214}
   textObj: {fileID: 576142772}
   player: {fileID: 1964117855}
   spellController: {fileID: 0}
+  spells: {fileID: 5742805745412394632, guid: d8b181180fd38934cb67da281fbc2f5c, type: 3}
 --- !u!4 &501290933
 Transform:
   m_ObjectHideFlags: 0
@@ -1154,12 +1158,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f058f303807a4167a1fe5b8c7a81df1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 0
+  spell: {fileID: 0}
   activateKey: 101
   parent: {fileID: 80563214}
   textObj: {fileID: 0}
   player: {fileID: 0}
   spellController: {fileID: 0}
+  spells: {fileID: 0}
 --- !u!114 &576142775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1833,12 +1838,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f058f303807a4167a1fe5b8c7a81df1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 0
+  spell: {fileID: 0}
   activateKey: 102
   parent: {fileID: 1941619618}
   textObj: {fileID: 0}
   player: {fileID: 0}
   spellController: {fileID: 0}
+  spells: {fileID: 0}
 --- !u!114 &886545638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2693,12 +2699,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f058f303807a4167a1fe5b8c7a81df1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 0
+  spell: {fileID: 0}
   activateKey: 114
   parent: {fileID: 45073581}
   textObj: {fileID: 0}
   player: {fileID: 0}
   spellController: {fileID: 0}
+  spells: {fileID: 0}
 --- !u!114 &1204103929
 MonoBehaviour:
   m_ObjectHideFlags: 0
