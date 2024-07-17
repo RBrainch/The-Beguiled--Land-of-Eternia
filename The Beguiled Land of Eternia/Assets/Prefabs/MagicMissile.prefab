@@ -104,14 +104,17 @@ MonoBehaviour:
   damage: 25
   name: Magic Missile
   description: 'Basic combat spell that fires a '
-  cooldown: 0
+  cooldown: 3
   icon: {fileID: 21300000, guid: 4a5fa76861edf4bb8a6e3d998c779dac, type: 3}
+  enemyScript: {fileID: 0}
   speed: 10
   mousePos: {x: 0, y: 0, z: 0}
   missileDirection: {x: 0, y: 0, z: 0}
   healthParent: {fileID: 0}
   healthManager: {fileID: 0}
   anim: {fileID: 0}
+  enemyRB: {fileID: 0}
+  ImpulseSpeed: 10
 --- !u!50 &7412540322728537468
 Rigidbody2D:
   serializedVersion: 4
