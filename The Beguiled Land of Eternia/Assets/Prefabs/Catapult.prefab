@@ -104,13 +104,16 @@ MonoBehaviour:
   name: Catapault
   description: A projectile angled to go over obstacles
   cooldown: 5
-  icon: {fileID: 21300000, guid: 83ad56f8f32744638afd5d7c0354ccee, type: 3}
+  icon: {fileID: 21300000, guid: 4b185a49282d74763b00555b2e205a25, type: 3}
+  enemyScript: {fileID: 0}
   speed: 10
   mousePos: {x: 0, y: 0, z: 0}
   missileDirection: {x: 0, y: 0, z: 0}
   healthParent: {fileID: 0}
   healthManager: {fileID: 0}
   anim: {fileID: 0}
+  enemyRB: {fileID: 0}
+  ImpulseSpeed: 10
 --- !u!50 &-6026666451670004840
 Rigidbody2D:
   serializedVersion: 4

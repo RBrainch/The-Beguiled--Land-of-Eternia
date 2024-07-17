@@ -53,7 +53,7 @@ MonoBehaviour:
   name: 
   description: 
   cooldown: 25
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: fcde3bc1e360549679b79fc3c8d41e94, type: 3}
   enemyScript: {fileID: 0}
   speed: 10
   mousePos: {x: 0, y: 0, z: 0}
