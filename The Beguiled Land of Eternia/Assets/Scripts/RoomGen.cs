@@ -5,19 +5,17 @@ using UnityEngine.Tilemaps;
 
 public class RoomGen : MonoBehaviour
 {
-    public GameObject RoomVisualizer;
-    public GameObject UpHallwayVisualizer;
-    public GameObject RightHallwayVisualizer;
 
     public Tilemap WallMap;
     public Tilemap BackgroundMap;
 
-    public TileBase WallTile;
-    public TileBase DoorTile;
-    public TileBase BackgroundTile;
+    public List<TileBase> WallTiles;
+    public List<TileBase> BackgroundTiles;
+
     public TileBase StarterBackgroundTile;
+    public TileBase StarterWallTile;
     public TileBase BossBackgroundTile;
-    public TileBase TreasureBackgroundTile;
+    public TileBase BossWallTile;
     void Start()
     {
         RoomGenerator DearGod = new RoomGenerator(10, 12);
@@ -27,18 +25,21 @@ public class RoomGen : MonoBehaviour
             foreach (KeyValuePair<int, Room> Entry2 in Entry.Value)
             {
                 Room CurrentRoom = Entry2.Value;
-                TileBase TileToUse = BackgroundTile;
+
+                int Index = Random.Range(0, WallTiles.Count);
+
+                TileBase MyBackgroundTile = BackgroundTiles[Index];
+                TileBase MyWallTile = WallTiles[Index];
 
                 switch (CurrentRoom.Type)
                 {
                     case "StartingRoom":
-                        TileToUse = StarterBackgroundTile;
+                        MyBackgroundTile = StarterBackgroundTile;
+                        MyWallTile = StarterWallTile;
                         break;
                     case "BossRoom":
-                        TileToUse = BossBackgroundTile;
-                        break;
-                    case "TreasureRoom":
-                        TileToUse = TreasureBackgroundTile;
+                        MyBackgroundTile = BossBackgroundTile;
+                        MyWallTile = BossWallTile;
                         break;
                 }
 
@@ -47,7 +48,7 @@ public class RoomGen : MonoBehaviour
                 {
                     for (int y = 1; y < 9; y++)
                     {
-                        BackgroundMap.SetTile(new Vector3Int(RoomWorldCoordinates.x + x, RoomWorldCoordinates.y + y, 0), TileToUse);
+                        BackgroundMap.SetTile(new Vector3Int(RoomWorldCoordinates.x + x, RoomWorldCoordinates.y + y, 0), MyBackgroundTile);
                     }
                 }
 
@@ -77,64 +78,32 @@ public class RoomGen : MonoBehaviour
 
                     if (Entry3.Value)
                     {
-                        BackgroundMap.SetTile(DoorCoord1, DoorTile);
-                        BackgroundMap.SetTile(DoorCoord2, DoorTile);
+                        BackgroundMap.SetTile(DoorCoord1, MyBackgroundTile);
+                        BackgroundMap.SetTile(DoorCoord2, MyBackgroundTile);
                     } else
                     {
-                        WallMap.SetTile(DoorCoord1, WallTile);
-                        WallMap.SetTile(DoorCoord2, WallTile);
+                        WallMap.SetTile(DoorCoord1, MyWallTile);
+                        WallMap.SetTile(DoorCoord2, MyWallTile);
                     }
                 }
 
                 for (int x = 1; x < 4; x++)
                 {
-                    WallMap.SetTile(new Vector3Int(RoomWorldCoordinates.x + x, RoomWorldCoordinates.y, 0), WallTile);
-                    WallMap.SetTile(new Vector3Int(RoomWorldCoordinates.x + x, RoomWorldCoordinates.y + 9, 0), WallTile);
+                    WallMap.SetTile(new Vector3Int(RoomWorldCoordinates.x + x, RoomWorldCoordinates.y, 0), MyWallTile);
+                    WallMap.SetTile(new Vector3Int(RoomWorldCoordinates.x + x, RoomWorldCoordinates.y + 9, 0), MyWallTile);
 
-                    WallMap.SetTile(new Vector3Int(RoomWorldCoordinates.x + (9-x), RoomWorldCoordinates.y, 0), WallTile);
-                    WallMap.SetTile(new Vector3Int(RoomWorldCoordinates.x + (9-x), RoomWorldCoordinates.y + 9, 0), WallTile);
+                    WallMap.SetTile(new Vector3Int(RoomWorldCoordinates.x + (9-x), RoomWorldCoordinates.y, 0), MyWallTile);
+                    WallMap.SetTile(new Vector3Int(RoomWorldCoordinates.x + (9-x), RoomWorldCoordinates.y + 9, 0), MyWallTile);
                 }
 
                 for (int y = 0; y < 4; y++)
                 {
-                    WallMap.SetTile(new Vector3Int(RoomWorldCoordinates.x, RoomWorldCoordinates.y + y, 0), WallTile);
-                    WallMap.SetTile(new Vector3Int(RoomWorldCoordinates.x + 9, RoomWorldCoordinates.y + y, 0), WallTile);
+                    WallMap.SetTile(new Vector3Int(RoomWorldCoordinates.x, RoomWorldCoordinates.y + y, 0), MyWallTile);
+                    WallMap.SetTile(new Vector3Int(RoomWorldCoordinates.x + 9, RoomWorldCoordinates.y + y, 0), MyWallTile);
 
-                    WallMap.SetTile(new Vector3Int(RoomWorldCoordinates.x, RoomWorldCoordinates.y + (9-y), 0), WallTile);
-                    WallMap.SetTile(new Vector3Int(RoomWorldCoordinates.x + 9, RoomWorldCoordinates.y + (9-y), 0), WallTile);
+                    WallMap.SetTile(new Vector3Int(RoomWorldCoordinates.x, RoomWorldCoordinates.y + (9-y), 0), MyWallTile);
+                    WallMap.SetTile(new Vector3Int(RoomWorldCoordinates.x + 9, RoomWorldCoordinates.y + (9-y), 0), MyWallTile);
                 }
-
-                //GameObject RoomVisual = Instantiate(RoomVisualizer, new Vector3(CurrentRoom.x, CurrentRoom.y, 0), new Quaternion(0, 0, 0, 0));
-
-                //if (CurrentRoom.Type == "StartingRoom")
-                //{
-                //    RoomVisual.GetComponent<SpriteRenderer>().color = new Color(1, 0, 1);
-                //}
-                //if (CurrentRoom.Type == "BossRoom")
-                //{
-                //    RoomVisual.GetComponent<SpriteRenderer>().color = new Color(1, 0, 0);
-                //}
-                //if (CurrentRoom.Type == "TreasureRoom")
-                //{
-                //    RoomVisual.GetComponent<SpriteRenderer>().color = new Color(1, 1, 0);
-                //}
-
-                //if (CurrentRoom.ConnectingDirections[Directions.North])
-                //{
-                //    Instantiate(UpHallwayVisualizer, new Vector3(CurrentRoom.x, CurrentRoom.y + 0.5f, 0), new Quaternion(0, 0, 0, 0));
-                //}
-                //if (CurrentRoom.ConnectingDirections[Directions.South])
-                //{
-                //    Instantiate(UpHallwayVisualizer, new Vector3(CurrentRoom.x, CurrentRoom.y - 0.5f, 0), new Quaternion(0, 0, 0, 0));
-                //}
-                //if (CurrentRoom.ConnectingDirections[Directions.West])
-                //{
-                //    Instantiate(RightHallwayVisualizer, new Vector3(CurrentRoom.x - 0.5f, CurrentRoom.y, 0), new Quaternion(0, 0, 0, 0));
-                //}
-                //if (CurrentRoom.ConnectingDirections[Directions.East])
-                //{
-                //    Instantiate(RightHallwayVisualizer, new Vector3(CurrentRoom.x + 0.5f, CurrentRoom.y, 0), new Quaternion(0, 0, 0, 0));
-                //}
             }
         }
     }
@@ -174,29 +143,6 @@ public class RoomGenerator
             if (BossRoomResult.Success)
             {
                 BossRoomGenerated = true;
-            }
-        }
-
-        bool GenerateTreasureRooms = true;
-        float GenerateRoll = Random.Range(2.5f, 4);
-        while (GenerateTreasureRooms)
-        {
-            if (GenerateRoll >= 3)
-            {
-                bool RoomGenerated = false;
-                while (!RoomGenerated)
-                {
-                    GenerationResult TreasureRoomResult = GenerateRoom("TreasureRoom");
-                    if (TreasureRoomResult.Success)
-                    {
-                        RoomGenerated = true;
-                    }
-                }
-                GenerateRoll = Random.Range(0, 4);
-            }
-            else
-            {
-                GenerateTreasureRooms = false;
             }
         }
 
@@ -285,7 +231,7 @@ public class RoomGenerator
             return new GenerationResult(false);
         }
 
-        if (Type == "BossRoom" || Type == "TreasureRoom")
+        if (Type == "BossRoom")
         {
             if (Mathf.Abs((int)RoomCheckCoordinates.x) <= 1 && Mathf.Abs((int)RoomCheckCoordinates.y) <= 1)
             {

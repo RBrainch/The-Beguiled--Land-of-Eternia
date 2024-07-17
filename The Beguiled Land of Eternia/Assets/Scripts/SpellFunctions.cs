@@ -99,7 +99,7 @@ public class SpellFunctions : MonoBehaviour
             if (gameObject.CompareTag("FireRing") && other.CompareTag("Enemy")) {
             //enemyRB = other.GetComponent<Rigidbody2D>();
             enemyScript = other.GetComponent<BasicEnemy>();
-            print(enemyScript.InShield);
+//            print(enemyScript.InShield);
             enemyScript.InShield = true;
 
 

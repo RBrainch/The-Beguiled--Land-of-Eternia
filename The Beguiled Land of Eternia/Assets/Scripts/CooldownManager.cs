@@ -14,15 +14,20 @@ public class CooldownManager : MonoBehaviour
     public GameObject textObj;
     public GameObject player;
     public SpellController spellController;
+    public GameObject spells;
     // Start is called before the first frame update
     void Start()
     {
         spellController = player.GetComponent<SpellController>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        
+        spells = FindObjectOfType<SpellFunctions>().gameObject;
+        spell = spells.GetComponent<SpellFunctions>();
         if(Input.GetKeyDown(activateKey))
         {
             coolingDown = true;

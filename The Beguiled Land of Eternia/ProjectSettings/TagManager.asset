@@ -11,6 +11,7 @@ TagManager:
   - SpellSlot3
   - FireRing
   - Enemy
+  - Projectile
   layers:
   - Default
   - TransparentFX
