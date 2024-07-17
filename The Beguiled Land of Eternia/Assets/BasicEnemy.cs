@@ -71,7 +71,8 @@ public class BasicEnemy : MonoBehaviour
                 RigidBody.velocity = moveTowards;
             } else if (InShield)
             {
-                StartCoroutine(runAway());
+                PushAway();
+                //StartCoroutine(runAway());
             }
         } else {
             RigidBody.velocity = new Vector2(0, 0);
@@ -90,5 +91,10 @@ public class BasicEnemy : MonoBehaviour
         RigidBody.velocity = -moveTowards;
         yield return new WaitForSeconds(2);
         InShield = false;
+     }
+
+     public void PushAway() {
+        currentHealthE -= 1.5f;
+        RigidBody.AddForce(-moveTowards * 600, ForceMode2D.Force);
      }
 }

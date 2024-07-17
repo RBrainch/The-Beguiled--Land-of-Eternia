@@ -517,7 +517,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Heal
+  m_text: 'Healing Spell
 
 '
   m_isRightToLeft: 0
@@ -3398,9 +3398,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Magic Missile
-
-'
+  m_text: Ball of Energy
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4427,6 +4425,7 @@ MonoBehaviour:
   - {fileID: 8196095241099947941, guid: 0957d36bc12a098469312868a0a90544, type: 3}
   - {fileID: 782309851298768672, guid: 74acad8c31337b141a84d3f31548a526, type: 3}
   player: {fileID: 1964117855}
+  enemy: {fileID: 0}
   mousePos: {x: 0, y: 0, z: 0}
   missileDirection: {x: 0, y: 0, z: 0}
   Slot1Cast: 0
@@ -5106,9 +5105,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Catapault
-
-'
+  m_text: Ring of Fire
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
