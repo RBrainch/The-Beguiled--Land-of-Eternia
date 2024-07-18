@@ -130,8 +130,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: {fileID: 0}
-  maxHealthE: 50
-  currentHealthE: 50
+  maxHealthE: 500
+  currentHealthE: 500
   Player: {fileID: 0}
   healthBar: {fileID: 0}
   MoveSpeed: 2
