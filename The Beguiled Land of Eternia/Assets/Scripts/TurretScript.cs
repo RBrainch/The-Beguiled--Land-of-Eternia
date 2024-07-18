@@ -22,7 +22,7 @@ public class TurretScript : MonoBehaviour
 
         if (cooldown <= 0) {
             cooldown = 4;
-            Instantiate(honingMissile, new Vector3(transform.position.x + 1f, transform.position.y + 1f, transform.position.z), transform.rotation);
+            Instantiate(honingMissile, new Vector3(transform.position.x, transform.position.y + 2f, transform.position.z), transform.rotation);
         }
         else {
             cooldown -= Time.deltaTime;

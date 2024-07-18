@@ -5338,7 +5338,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Camera: {fileID: 2047539890}
-  MoveSpeed: 2.5
+  MoveSpeed: 4
   spellImage1: {fileID: 0}
   spellImage2: {fileID: 0}
   spellImage3: {fileID: 0}
