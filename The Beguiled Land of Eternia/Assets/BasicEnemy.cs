@@ -19,6 +19,7 @@ public class BasicEnemy : MonoBehaviour
     public bool InShield = false;
     private Rigidbody2D RigidBody;
     public float Eyesight = 5;
+    public ParticleSystem deathParticles;
     void Start()
     {
         currentHealthE = maxHealthE;
@@ -36,6 +37,7 @@ public class BasicEnemy : MonoBehaviour
         //print(currentHealthE/maxHealthE);
         healthBar.fillAmount = currentHealthE/maxHealthE;
         if (currentHealthE < 0) {
+            Instantiate(deathParticles, transform.position, transform.rotation);
             Destroy(gameObject);
             //print("hell0!");
         }

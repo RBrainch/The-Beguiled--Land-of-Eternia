@@ -12,6 +12,7 @@ public class HealthManager : MonoBehaviour
     public TMP_Text healthText;
     public GameObject player;
     public GameObject GameOverCanvas;
+    public ParticleSystem deathPoof;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +28,7 @@ public class HealthManager : MonoBehaviour
         healthText.text = currentHealth + "/" + maxHealth;
 
         if (currentHealth <= 0) {
+            Instantiate(deathPoof, player.transform.position, player.transform.rotation);
             GameOverCanvas.SetActive(true);
             Destroy(player);
         }

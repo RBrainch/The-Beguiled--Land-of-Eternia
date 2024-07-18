@@ -142,6 +142,7 @@ MonoBehaviour:
   moveTowards: {x: 0, y: 0}
   InShield: 0
   Eyesight: 5
+  deathParticles: {fileID: 7226888052703040407, guid: 7ec363c8df426644ea85f8d6d570561c, type: 3}
 --- !u!60 &2151381990115122598
 PolygonCollider2D:
   m_ObjectHideFlags: 0

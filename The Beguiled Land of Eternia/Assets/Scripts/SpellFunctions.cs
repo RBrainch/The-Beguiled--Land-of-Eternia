@@ -24,6 +24,8 @@ public class SpellFunctions : MonoBehaviour
     public Rigidbody2D enemyRB;
     public float ImpulseSpeed = 10f;
     public ParticleSystem healParticles;
+    public ParticleSystem fireParticles;
+    public ParticleSystem missileParticles;
 
     // Start is called before the first frame update
     void Start()
@@ -80,7 +82,7 @@ public class SpellFunctions : MonoBehaviour
         healthManager.currentHealth += 50;
     }
     void FireRing() {
-        
+        Instantiate(fireParticles, player.transform.position, player.transform.rotation);
         Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), gameObject.GetComponent<Collider2D>());
         transform.position = player.transform.position;
         transform.Rotate(new Vector3(0,0,1), Space.Self);
@@ -96,6 +98,7 @@ public class SpellFunctions : MonoBehaviour
             enemyScript = (collision.gameObject).GetComponent<BasicEnemy>();
             //print("hello");
             enemyScript.currentHealthE -= 10;
+            Instantiate(missileParticles, transform.position,transform.rotation);
 
             print("Hit enemy");
             Destroy(gameObject);

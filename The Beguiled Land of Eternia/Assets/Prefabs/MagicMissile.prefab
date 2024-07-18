@@ -115,6 +115,9 @@ MonoBehaviour:
   anim: {fileID: 0}
   enemyRB: {fileID: 0}
   ImpulseSpeed: 10
+  healParticles: {fileID: 0}
+  fireParticles: {fileID: 0}
+  missileParticles: {fileID: 2708598583397607910, guid: 6398d43fe79ea0140913dc5530c646af, type: 3}
 --- !u!50 &7412540322728537468
 Rigidbody2D:
   serializedVersion: 4
