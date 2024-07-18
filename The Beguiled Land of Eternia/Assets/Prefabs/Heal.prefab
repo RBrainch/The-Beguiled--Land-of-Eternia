@@ -61,6 +61,7 @@ MonoBehaviour:
   anim: {fileID: 0}
   enemyRB: {fileID: 0}
   ImpulseSpeed: 10
+  healParticles: {fileID: 3280519133390621004, guid: a71be3e7990efb040a07565c43cbb198, type: 3}
 --- !u!50 &7836052650453873367
 Rigidbody2D:
   serializedVersion: 4

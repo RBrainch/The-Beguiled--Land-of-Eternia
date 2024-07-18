@@ -23,6 +23,7 @@ public class SpellFunctions : MonoBehaviour
     public Animator anim;
     public Rigidbody2D enemyRB;
     public float ImpulseSpeed = 10f;
+    public ParticleSystem healParticles;
 
     // Start is called before the first frame update
     void Start()
@@ -74,6 +75,8 @@ public class SpellFunctions : MonoBehaviour
     }
 
     void HealingSpell() {
+        Instantiate(healParticles, new Vector3(player.transform.position.x, player.transform.position.y-0.75f, player.transform.position.z),player.transform.rotation);
+        print("Particles Spawned");
         healthManager.currentHealth += 50;
     }
     void FireRing() {

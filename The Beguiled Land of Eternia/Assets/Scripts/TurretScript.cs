@@ -8,6 +8,7 @@ public class TurretScript : MonoBehaviour
     public GameObject honingMissile;
     public float health;
     public float maxHealth = 25f;
+    public ParticleSystem particleSystem;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,12 +18,11 @@ public class TurretScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Physics2D.IgnoreCollision(honingMissile.GetComponent<Collider2D>(), gameObject.GetComponent<Collider2D>());
 
 
         if (cooldown <= 0) {
             cooldown = 4;
-            Instantiate(honingMissile, new Vector3(transform.position.x, transform.position.y + 2f, transform.position.z), transform.rotation);
+            Instantiate(particleSystem, new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z), transform.rotation);
         }
         else {
             cooldown -= Time.deltaTime;
