@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   spellController: {fileID: 0}
-  damage: 16
+  damage: 25
   name: Magic Missile
   description: Basic combat spell that fires a bolt of energy
   cooldown: 1.5

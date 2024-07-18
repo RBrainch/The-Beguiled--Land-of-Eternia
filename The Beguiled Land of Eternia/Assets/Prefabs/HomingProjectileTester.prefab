@@ -138,8 +138,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BaseSpeed: 5
-  TurnSpeed: 360
+  TurnSpeed: 90
   MyDamage: 10
+  myHealth: 5
   Health: {fileID: 0}
 --- !u!96 &162320341926520547
 TrailRenderer:

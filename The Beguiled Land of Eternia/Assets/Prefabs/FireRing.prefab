@@ -52,7 +52,7 @@ MonoBehaviour:
   damage: 50
   name: Fire Ring
   description: A powerful spell that creates a ring of fire around you
-  cooldown: 25
+  cooldown: 20
   icon: {fileID: 21300000, guid: fcde3bc1e360549679b79fc3c8d41e94, type: 3}
   enemyScript: {fileID: 0}
   speed: 10
@@ -65,6 +65,7 @@ MonoBehaviour:
   ImpulseSpeed: 10
   healParticles: {fileID: 0}
   fireParticles: {fileID: 6263782476919498311, guid: 1fd2749f2a4056446881dce86ed70c39, type: 3}
+  missileParticles: {fileID: 0}
 --- !u!58 &5828340380445066297
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -97,7 +97,7 @@ public class SpellFunctions : MonoBehaviour
 
             enemyScript = (collision.gameObject).GetComponent<BasicEnemy>();
             //print("hello");
-            enemyScript.currentHealthE -= 10;
+            enemyScript.currentHealthE -= damage;
             Instantiate(missileParticles, transform.position,transform.rotation);
 
             VFXManager.instance.ShakeCam(0.3f, 0.7f);

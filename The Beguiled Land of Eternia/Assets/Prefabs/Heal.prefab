@@ -50,7 +50,7 @@ MonoBehaviour:
   damage: 0
   name: Heal
   description: Heal 50 health
-  cooldown: 20
+  cooldown: 17
   icon: {fileID: 21300000, guid: 5651981e0d0e842a4b630774aee92117, type: 3}
   enemyScript: {fileID: 0}
   speed: 10
@@ -62,6 +62,8 @@ MonoBehaviour:
   enemyRB: {fileID: 0}
   ImpulseSpeed: 10
   healParticles: {fileID: 3280519133390621004, guid: a71be3e7990efb040a07565c43cbb198, type: 3}
+  fireParticles: {fileID: 0}
+  missileParticles: {fileID: 0}
 --- !u!50 &7836052650453873367
 Rigidbody2D:
   serializedVersion: 4

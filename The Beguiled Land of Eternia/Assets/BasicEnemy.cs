@@ -36,7 +36,7 @@ public class BasicEnemy : MonoBehaviour
 
         //print(currentHealthE/maxHealthE);
         healthBar.fillAmount = currentHealthE/maxHealthE;
-        if (currentHealthE < 0) {
+        if (currentHealthE <= 0) {
             Instantiate(deathParticles, transform.position, transform.rotation);
             Destroy(gameObject);
             //print("hell0!");

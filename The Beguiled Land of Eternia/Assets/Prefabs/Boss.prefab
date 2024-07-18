@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5927429153773154062}
   m_Layer: 13
   m_Name: Boss
-  m_TagString: Projectile
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102,8 +102,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: {fileID: 0}
-  maxHealthE: 150
-  currentHealthE: 150
+  maxHealthE: 250
+  currentHealthE: 250
   Player: {fileID: 0}
   healthBar: {fileID: 0}
   MoveSpeed: 1.5
@@ -130,8 +130,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: {fileID: 0}
-  maxHealthE: 150
-  currentHealthE: 150
+  maxHealthE: 250
+  currentHealthE: 250
   Player: {fileID: 0}
   healthBar: {fileID: 0}
   MoveSpeed: 2
