@@ -80,6 +80,7 @@ public class SpellFunctions : MonoBehaviour
         
         Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), gameObject.GetComponent<Collider2D>());
         transform.position = player.transform.position;
+        transform.Rotate(new Vector3(0,0,1), Space.Self);
        // StartCoroutine(FireTimer());
     }
     
