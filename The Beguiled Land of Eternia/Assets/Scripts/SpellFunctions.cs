@@ -48,6 +48,8 @@ public class SpellFunctions : MonoBehaviour
             Destroy(gameObject);
         }
         if (gameObject.CompareTag("FireRing")) {
+            
+            StartCoroutine(FireTimer());
             FireRing();
         }
 
@@ -75,24 +77,31 @@ public class SpellFunctions : MonoBehaviour
         healthManager.currentHealth += 50;
     }
     void FireRing() {
-        StartCoroutine(FireTimer());
+        
         Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), gameObject.GetComponent<Collider2D>());
         transform.position = player.transform.position;
+       // StartCoroutine(FireTimer());
     }
     
 
     
-    void OnTriggerEnter2D(Collider2D other) {
+    void OnCollisionEnter2D(Collision2D collision) {
         
-        if (gameObject.CompareTag("Missile")) {
+        if (gameObject.CompareTag("Missile") && collision.gameObject.CompareTag("Enemy")) {
 
-            enemyScript = other.GetComponent<BasicEnemy>();
+            enemyScript = (collision.gameObject).GetComponent<BasicEnemy>();
             //print("hello");
             enemyScript.currentHealthE -= 10;
 
             Destroy(gameObject);
-        }
 
+            
+        }
+        else if (gameObject.CompareTag("Missile")) {
+                Destroy(gameObject);
+            }
+        }
+        void OnTriggerEnter2D(Collider2D other) {
         if (gameObject.CompareTag("FireRing") && (other.CompareTag("Enemy") || other.CompareTag("Projectile"))) {
             //enemyRB = other.GetComponent<Rigidbody2D>();
 //            print(other.name);
@@ -120,9 +129,9 @@ public class SpellFunctions : MonoBehaviour
         }
         IEnumerator FireTimer() {
         
-        yield return new WaitForSeconds(2);
-        enemyScript.InShield = false;
-        Destroy(gameObject);
+            yield return new WaitForSeconds(2);
+            enemyScript.InShield = false;
+            Destroy(gameObject);
         }
 
     
