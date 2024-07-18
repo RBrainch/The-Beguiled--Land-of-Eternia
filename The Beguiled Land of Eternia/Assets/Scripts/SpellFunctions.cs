@@ -100,6 +100,8 @@ public class SpellFunctions : MonoBehaviour
             enemyScript.currentHealthE -= 10;
             Instantiate(missileParticles, transform.position,transform.rotation);
 
+            VFXManager.instance.ShakeCam(0.3f, 0.7f);
+
             print("Hit enemy");
             Destroy(gameObject);
 
