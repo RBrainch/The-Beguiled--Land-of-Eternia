@@ -69,9 +69,11 @@ public class BasicEnemy : MonoBehaviour
             if (!InShield)
             {
                 RigidBody.velocity = moveTowards;
+                
             } else if (InShield)
             {
-                PushAway();
+                RigidBody.velocity = -moveTowards;
+               
                 //StartCoroutine(runAway());
             }
         } else {
@@ -88,14 +90,15 @@ public class BasicEnemy : MonoBehaviour
     }
 
      public IEnumerator runAway() {
-        RigidBody.velocity = -moveTowards;
+        InShield = true;
         yield return new WaitForSeconds(2);
+        print(InShield);
         InShield = false;
+        
      }
 
      public void PushAway() {
-        currentHealthE -= 1.5f;
-        RigidBody.AddForce(-moveTowards * 600, ForceMode2D.Force);
+        StartCoroutine(runAway());
      }
 
      

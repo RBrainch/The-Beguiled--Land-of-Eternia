@@ -2538,6 +2538,7 @@ MonoBehaviour:
   healthBar: {fileID: 734105640}
   healthText: {fileID: 1174488117}
   player: {fileID: 1964117855}
+  GameOverCanvas: {fileID: 0}
 --- !u!1 &917538923
 GameObject:
   m_ObjectHideFlags: 0
@@ -4513,7 +4514,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Camera: {fileID: 2047539890}
-  MoveSpeed: 2.5
+  MoveSpeed: 4
   spellImage1: {fileID: 0}
   spellImage2: {fileID: 0}
   spellImage3: {fileID: 0}
