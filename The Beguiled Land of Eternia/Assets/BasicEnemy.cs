@@ -97,4 +97,6 @@ public class BasicEnemy : MonoBehaviour
         currentHealthE -= 1.5f;
         RigidBody.AddForce(-moveTowards * 600, ForceMode2D.Force);
      }
+
+     
 }

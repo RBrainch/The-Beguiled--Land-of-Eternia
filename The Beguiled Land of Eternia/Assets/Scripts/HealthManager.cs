@@ -11,6 +11,7 @@ public class HealthManager : MonoBehaviour
     public Image healthBar;
     public TMP_Text healthText;
     public GameObject player;
+    public GameObject GameOverCanvas;
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +26,8 @@ public class HealthManager : MonoBehaviour
 
         healthText.text = currentHealth + "/" + maxHealth;
 
-        if (currentHealth == 0) {
+        if (currentHealth <= 0) {
+            GameOverCanvas.SetActive(true);
             Destroy(player);
         }
 
