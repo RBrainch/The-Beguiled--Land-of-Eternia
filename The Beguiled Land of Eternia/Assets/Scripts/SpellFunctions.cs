@@ -107,10 +107,12 @@ public class SpellFunctions : MonoBehaviour
         if (gameObject.CompareTag("FireRing") && (other.CompareTag("Enemy") || other.CompareTag("Projectile"))) {
             //enemyRB = other.GetComponent<Rigidbody2D>();
 //            print(other.name);
+          
             enemyScript = other.GetComponent<BasicEnemy>();
+             enemyScript.PushAway();
 //            print(enemyScript.InShield);
-            enemyScript.InShield = true;
-            enemyScript.currentHealthE -= 50 * Time.deltaTime;
+            
+            enemyScript.currentHealthE -= 25;
            // StartCoroutine(enemyScript.runAway());
 
 
@@ -125,14 +127,14 @@ public class SpellFunctions : MonoBehaviour
 
         void OnTriggerExit2D(Collider2D other) {
             if (gameObject.CompareTag("FireRing") && other.CompareTag("Enemy")) {
-                enemyScript.InShield = false;
+                
             }
 
         }
         IEnumerator FireTimer() {
         
             yield return new WaitForSeconds(2);
-            enemyScript.InShield = false;
+            
             Destroy(gameObject);
         }
 
