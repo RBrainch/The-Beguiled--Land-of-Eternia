@@ -37,7 +37,7 @@ public class PlayerControllerChristian : MonoBehaviour
         dx *= MoveSpeed;
         dy *= MoveSpeed;
 
-        Anim.SetBool("Moving",(dx != 0 || dy != 0));
+        Anim.SetBool("Moving", (dx != 0 || dy != 0));
 
         RigidBody.velocity = new Vector2(dx, dy);
         if (dx > 0) {
