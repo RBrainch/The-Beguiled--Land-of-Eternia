@@ -7,6 +7,7 @@ public class PlayerControllerChristian : MonoBehaviour
     public GameObject Camera;
     public float MoveSpeed = 2.5f;
     private Rigidbody2D RigidBody;
+    private Animator Anim;
 
     //public Spell sampleSpell;
     public GameObject spellImage1;
@@ -17,6 +18,7 @@ public class PlayerControllerChristian : MonoBehaviour
     {
         sr = GetComponent<SpriteRenderer>();
         RigidBody = GetComponent<Rigidbody2D>();
+        Anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -35,12 +37,14 @@ public class PlayerControllerChristian : MonoBehaviour
         dx *= MoveSpeed;
         dy *= MoveSpeed;
 
+        Anim.SetBool("Moving",(dx != 0 || dy != 0));
+
         RigidBody.velocity = new Vector2(dx, dy);
         if (dx > 0) {
-            sr.flipX = true;
+            sr.flipX = false;
         }
         else if (dx < 0) {
-            sr.flipX = false;
+            sr.flipX = true;
         }
 
         if (Input.GetKeyDown(KeyCode.E))

@@ -40,10 +40,10 @@ public class BossScript : MonoBehaviour
         if (AttackTimer >= AttackInterval)
         {
             AttackTimer -= AttackInterval;
-            for (int i = 0; i < 5; i++)
-            {
-                Instantiate(Projectile, transform.position + new Vector3(Random.Range(-0.5f,0.5f), Random.Range(-0.5f,0.5f), 0), transform.rotation);
-            }
+            Instantiate(Projectile, transform.position + new Vector3(0, 1, 0), transform.rotation);
+            Instantiate(Projectile, transform.position + new Vector3(0, -1, 0), transform.rotation);
+            Instantiate(Projectile, transform.position + new Vector3(1, 0, 0), transform.rotation);
+            Instantiate(Projectile, transform.position + new Vector3(-1, 0, 0), transform.rotation);
         }
 
         //print(currentHealthE/maxHealthE);
