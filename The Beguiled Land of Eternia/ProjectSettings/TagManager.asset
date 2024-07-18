@@ -10,6 +10,9 @@ TagManager:
   - Projectile
   - Enemy
   - HealthBarParent
+  - SpellSlot3
+  - SpellSlot
+  - SpellSlot2
   layers:
   - Default
   - TransparentFX
@@ -46,4 +49,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: New Layer 1
+    uniqueID: 4150453381
     locked: 0

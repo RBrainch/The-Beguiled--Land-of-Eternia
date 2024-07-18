@@ -102,8 +102,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: {fileID: 0}
-  maxHealthE: 500
-  currentHealthE: 500
+  maxHealthE: 250
+  currentHealthE: 250
   Player: {fileID: 0}
   healthBar: {fileID: 0}
   MoveSpeed: 1.5
@@ -130,8 +130,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Health: {fileID: 0}
-  maxHealthE: 500
-  currentHealthE: 500
+  maxHealthE: 250
+  currentHealthE: 250
   Player: {fileID: 0}
   healthBar: {fileID: 0}
   MoveSpeed: 2

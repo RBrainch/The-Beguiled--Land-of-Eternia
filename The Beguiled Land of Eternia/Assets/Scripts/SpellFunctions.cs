@@ -63,7 +63,7 @@ public class SpellFunctions : MonoBehaviour
             Vector3 rotation = mousePos - player.transform.position;
             //print(missileDirection.normalized);
             float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
-            rb.AddForce(missileDirection * speed, ForceMode2D.Force);
+            rb.AddForce(missileDirection * speed * Time.deltaTime, ForceMode2D.Force);
 
             transform.rotation = Quaternion.Euler(0, 0, rotZ);
             

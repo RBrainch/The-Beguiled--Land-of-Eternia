@@ -107,7 +107,7 @@ MonoBehaviour:
   cooldown: 1.5
   icon: {fileID: 21300000, guid: 9fcf4353d46ae458fb77b9cb71f68a15, type: 3}
   enemyScript: {fileID: 0}
-  speed: 10
+  speed: 10000
   mousePos: {x: 0, y: 0, z: 0}
   missileDirection: {x: 0, y: 0, z: 0}
   healthParent: {fileID: 0}
