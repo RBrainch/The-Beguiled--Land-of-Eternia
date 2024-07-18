@@ -93,11 +93,13 @@ public class SpellFunctions : MonoBehaviour
             //print("hello");
             enemyScript.currentHealthE -= 10;
 
+            print("Hit enemy");
             Destroy(gameObject);
 
             
         }
-        else if (gameObject.CompareTag("Missile")) {
+        else if (gameObject.CompareTag("Missile") && !collision.gameObject.CompareTag("Player")) {
+                print("Hit wall");
                 Destroy(gameObject);
             }
         }
