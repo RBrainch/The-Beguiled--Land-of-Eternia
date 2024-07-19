@@ -50,6 +50,7 @@ public class HomingProjectile : MonoBehaviour
         if (Collision.gameObject == Player)
         {
             Health.currentHealth -= MyDamage;
+            VFXManager.instance.ShakeCam(0.3f,0.7f);
         }
         if (!Collision.gameObject.CompareTag("Projectile") && !Collision.gameObject.CompareTag("Enemy"))
         {

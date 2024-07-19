@@ -24,6 +24,7 @@ public class SpellSwitchManager : MonoBehaviour
     public GameObject heal;
     public GameObject spellSwitchThing;
     public GameObject spellTable;
+    public SwapTableScript swap;
     // Start is called before the first frame update
     void Start()
     {
@@ -73,6 +74,7 @@ public class SpellSwitchManager : MonoBehaviour
             spellSwitchThing.SetActive(false);
             Time.timeScale = 1;
             print("Finished spell assigning");
+            swap.inSpellTable = false;
         }else
         {
             selectedSlot++;

@@ -87,6 +87,7 @@ public class BasicEnemy : MonoBehaviour
         if (Collision.gameObject == Player && DamageCooldown <= 0)
         {
             DamageCooldown = 1;
+            VFXManager.instance.ShakeCam(0.3f,0.7f);
             Health.currentHealth -= MyDamage;
         }
     }
