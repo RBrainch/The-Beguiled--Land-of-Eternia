@@ -359,6 +359,8 @@ MonoBehaviour:
   health: 0
   maxHealth: 25
   particleSystem: {fileID: 5824670795371433368, guid: f6fd568b816c64943a44efc3add3a881, type: 3}
+  Eyesight: 8
+  Player: {fileID: 0}
 --- !u!114 &-3422309347940689238
 MonoBehaviour:
   m_ObjectHideFlags: 0

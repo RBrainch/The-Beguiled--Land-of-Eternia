@@ -6,7 +6,7 @@ public class TurretParticleScript : MonoBehaviour
 {
     public GameObject honingMissile;
     public float cooldown = 3;
-    public float Eyesight = 5f;
+    public float Eyesight = 8f;
     public GameObject Player;
     // Start is called before the first frame update
     void Start()
