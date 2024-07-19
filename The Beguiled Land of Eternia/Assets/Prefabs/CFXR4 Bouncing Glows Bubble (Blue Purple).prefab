@@ -9778,7 +9778,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   honingMissile: {fileID: 2703171455945262465, guid: 18bbf1db7efbc84478182917de9a0337, type: 3}
   cooldown: 4
-  Eyesight: 8
+  Eyesight: 10
   Player: {fileID: 0}
 --- !u!1 &7708729512989566163
 GameObject:
